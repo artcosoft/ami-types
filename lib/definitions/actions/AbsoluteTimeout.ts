@@ -1,11 +1,11 @@
-import {AmiActionPrototype} from "../generic.types";
+import {AmiActionPrototype, AmiResponse} from "../generic.types";
 
 type Request = {
     Channel: string
     Timeout: string
 }
 
-type Response = {}
+type Response = AmiResponse
 
 type Event = never
 

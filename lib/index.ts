@@ -1,3 +1,5 @@
+export {AmiResponse, AmiError} from "./definitions/generic.types"
+
 import {
     AbsoluteTimeout,
     AgentLogoff,
@@ -54,7 +56,6 @@ export type AmiActions = {
     AbsoluteTimeout: AbsoluteTimeout
     Agents: Agents
     AgentLogoff: AgentLogoff
-    /* Attended Transfer */
     Atxfer: Atxfer
     BlindTransfer: BlindTransfer
     Bridge: Bridge
@@ -87,3 +88,12 @@ export type AmiActions = {
     Redirect: Redirect
     ShowDialPlan: ShowDialPlan
 }
+
+
+export const amiAction = <T extends AmiActionType>(action: T, params: AmiActions[T]['Request'], actionID: string): AmiAction<T> => {
+    return {
+        Action: action,
+        ActionID: actionID,
+        ...params
+    };
+};

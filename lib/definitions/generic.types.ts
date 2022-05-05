@@ -5,20 +5,17 @@ type BaseResponse = {
     ActionID: string
 }
 
-export type SuccessResponse = BaseResponse & {
+export type AmiResponse = BaseResponse & {
     Response: "Success"
     EventList?: string
 }
 
-export type ErrorResponse = BaseResponse & {
+export type AmiError = BaseResponse & {
     Response: "Error"
 }
 
-export type AmiResponse = SuccessResponse
 
-
-
-export type AmiActionPrototype<Request, Response, Event> = {
+export type AmiActionPrototype<Request, Response extends AmiResponse, Event> = {
     Request: Request,
     Response: Response,
     Event: Event
