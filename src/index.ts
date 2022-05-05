@@ -1,4 +1,4 @@
-export {AmiResponse, AmiError} from "./definitions/generic.types"
+import {AmiResponse, AmiError} from "./definitions/generic.types"
 
 import {
     AbsoluteTimeout,
@@ -97,3 +97,7 @@ export const amiAction = <T extends AmiActionType>(action: T, params: AmiActions
         ...params
     };
 };
+
+export {
+    AmiResponse, AmiError
+}
