@@ -15,6 +15,8 @@ import {
     ExtensionState,
     Getvar,
     Hangup,
+    Login,
+    Logoff,
     Originate,
     Park,
     PJSIPNotify,
@@ -68,6 +70,8 @@ export type AmiActions = {
     Getvar: Getvar
     Setvar: Setvar
     Hangup: Hangup
+    Login: Login
+    Logoff: Logoff
     Originate: Originate
     Park: Park
     PJSIPNotify: PJSIPNotify

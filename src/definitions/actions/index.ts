@@ -12,6 +12,8 @@ import { Events } from './Events'
 import { ExtensionState } from './ExtensionState'
 import { Getvar } from './Getvar'
 import { Hangup } from './Hangup'
+import { Login } from './Login'
+import { Logoff } from './Logoff'
 import { Originate } from './Originate'
 import { Park } from './Park'
 import { PJSIPNotify } from './PJSIPNotify'
@@ -69,4 +71,6 @@ export {
     QueueSummary,
     Redirect,
     ShowDialPlan,
+    Login,
+    Logoff
 }
