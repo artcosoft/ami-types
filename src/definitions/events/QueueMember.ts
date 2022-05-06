@@ -1,5 +1,6 @@
-export type QueueMember = {
-    Event: 'QueueMember'
+import {GenericAmiEvent} from "../generic.types";
+
+type Payload = {
     Queue: string
     Name: string
     Location: string
@@ -16,3 +17,5 @@ export type QueueMember = {
     Wrapuptime: string
     ActionID: string
 }
+
+export type QueueMember = GenericAmiEvent<"QueueMember", Payload>

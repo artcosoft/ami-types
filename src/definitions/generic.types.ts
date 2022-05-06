@@ -1,3 +1,5 @@
+import {AmiEventType} from "./all.events";
+
 export type EmptyType = Record<string, never>
 
 type BaseResponse = {
@@ -22,4 +24,7 @@ export type AmiActionPrototype<Request, Response extends AmiResponse, Event> = {
 }
 
 
-
+export type GenericAmiEvent<Event extends AmiEventType, Payload extends {}> = {
+    ActionID?: string,
+    Event: Event
+} & Payload
