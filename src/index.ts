@@ -1,6 +1,7 @@
 import {AmiError, AmiResponse} from "./definitions/generic.types"
 import {AmiActions, AmiActionType} from "./definitions/all.actions";
 import { AmiEvent } from "./definitions/events";
+import { ChannelState } from "./definitions/channel.types";
 
 type AmiListItemEvent<T extends AmiActionType> = {
     Event: string
@@ -30,5 +31,7 @@ export {
     AmiListItemEvent,
     AmiEvent,
     AmiAction,
-    amiAction
+    AmiActions,
+    amiAction,
+    ChannelState
 }

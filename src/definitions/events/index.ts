@@ -7,16 +7,16 @@ import {AgentLogoff} from './AgentLogoff'
 import {AgentRingNoAnswer} from './AgentRingNoAnswer'
 import {Agents} from './Agents'
 import {AgentsComplete} from './AgentsComplete'
-// import {AGIExecEnd} from './AGIExecEnd'
-// import {AGIExecStart} from './AGIExecStart'
-// import {Alarm} from './Alarm'
-// import {AlarmClear} from './AlarmClear'
-// import {AOC-D} from './AOC-D'
-// import {AOC-E} from './AOC-E'
-// import {AOC-S} from './AOC-S'
-// import {AorDetail} from './AorDetail'
-// import {AorList} from './AorList'
-// import {AorListComplete} from './AorListComplete'
+import {AGIExecEnd} from './AGIExecEnd'
+import {AGIExecStart} from './AGIExecStart'
+import {Alarm} from './Alarm'
+import {AlarmClear} from './AlarmClear'
+import {AOC_D} from './AOC-D'
+import {AOC_E} from './AOC-E'
+import {AOC_S} from './AOC-S'
+import {AorDetail} from './AorDetail'
+import {AorList} from './AorList'
+import {AorListComplete} from './AorListComplete'
 // import {AsyncAGIEnd} from './AsyncAGIEnd'
 // import {AsyncAGIExec} from './AsyncAGIExec'
 // import {AsyncAGIStart} from './AsyncAGIStart'
@@ -173,6 +173,31 @@ import {Unhold} from './Unhold'
 // import {VarSet} from './VarSet'
 // import {Wink} from './Wink'
 
+export type AmiChannelEvent = AgentCalled
+    | AgentComplete
+    | AgentConnect
+    | AgentDump
+    | AgentLogin
+    | AgentLogoff
+    | AgentRingNoAnswer
+    | DialBegin
+    | DialEnd
+    | DialState
+
+    | Hangup
+
+    | Hold
+
+    | Newchannel
+    | NewConnectedLine
+
+    | Newstate
+
+    | Unhold
+
+export type AmiDeviceEvent = unknown;
+export type AmiQueueEvent = unknown;
+
 export type AmiEvent =
     AgentCalled
     | AgentComplete
@@ -183,16 +208,16 @@ export type AmiEvent =
     | AgentRingNoAnswer
     | Agents
     | AgentsComplete
-    // | AGIExecEnd
-    // | AGIExecStart
-    // | Alarm
-    // | AlarmClear
-// | AOC
-// | AOC
-// | AOC
-//     | AorDetail
-//     | AorList
-//     | AorListComplete
+    | AGIExecEnd
+    | AGIExecStart
+    | Alarm
+    | AlarmClear
+    | AOC_D
+    | AOC_E
+    | AOC_S
+    | AorDetail
+    | AorList
+    | AorListComplete
 //     | AsyncAGIEnd
 //     | AsyncAGIExec
 //     | AsyncAGIStart
@@ -343,9 +368,9 @@ export type AmiEvent =
     // | TransportDetail
     // | UnexpectedAddress
     | Unhold
-    // | Unload
-    // | UnParkedCall
-    // | UserEvent
-    // | VarSet
-    // | Wink
+// | Unload
+// | UnParkedCall
+// | UserEvent
+// | VarSet
+// | Wink
 

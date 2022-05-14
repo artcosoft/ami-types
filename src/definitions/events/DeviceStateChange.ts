@@ -1,9 +1,8 @@
+import {GenericAmiEvent} from "../generic.types";
+
 type Payload = {
     Device: string
     State: string
 }
 
-export type DeviceStateChange = {
-    Event: 'DeviceStateChange'
-
-}
+export type DeviceStateChange = GenericAmiEvent<"DeviceStateChange", Payload>
