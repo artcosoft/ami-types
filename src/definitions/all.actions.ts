@@ -7,6 +7,12 @@ import {
     Bridge,
     BridgeDestroy,
     CancelAtxfer,
+    BridgeInfo,
+    BridgeKick,
+    BridgeList,
+    BridgeTechnologyList,
+    BridgeTechnologySuspend,
+    BridgeTechnologyUnsuspend,
     Command,
     DeviceStateList,
     Events,
@@ -210,6 +216,12 @@ export type AmiActions = {
     BlindTransfer: BlindTransfer
     Bridge: Bridge
     BridgeDestroy: BridgeDestroy
+    BridgeInfo: BridgeInfo,
+    BridgeKick: BridgeKick,
+    BridgeList: BridgeList,
+    BridgeTechnologyList: BridgeTechnologyList,
+    BridgeTechnologySuspend: BridgeTechnologySuspend,
+    BridgeTechnologyUnsuspend: BridgeTechnologyUnsuspend,
     CancelAtxfer: CancelAtxfer
     Command: Command
     DeviceStateList: DeviceStateList
