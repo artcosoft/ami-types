@@ -1,8 +1,10 @@
 import {ChannelState, ChannelStateDescription} from "../../channel.types";
 import {GenericAmiEvent} from "../../generic.types";
-import {BridgeVideoSourceMode} from "./_shared.types";
 
 type Payload = {
+    Channel: string
+    ChannelState: ChannelState
+    ChannelStateDesc: ChannelStateDescription
     CallerIDNum: string
     CallerIDName: string
     ConnectedLineNum: string
