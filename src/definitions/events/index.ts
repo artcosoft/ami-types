@@ -1,12 +1,14 @@
-import {AgentCalled} from './AgentCalled'
-import {AgentComplete} from './AgentComplete'
-import {AgentConnect} from './AgentConnect'
-import {AgentDump} from './AgentDump'
-import {AgentLogin} from './AgentLogin'
-import {AgentLogoff} from './AgentLogoff'
-import {AgentRingNoAnswer} from './AgentRingNoAnswer'
-import {Agents} from './Agents'
-import {AgentsComplete} from './AgentsComplete'
+import {
+    AgentCalled,
+    AgentComplete,
+    AgentConnect,
+    AgentDump,
+    AgentLogin,
+    AgentLogoff,
+    AgentRingNoAnswer,
+    Agents,
+    AgentsComplete
+} from './AgentEvents'
 import {AGIExecEnd} from './AGIExecEnd'
 import {AGIExecStart} from './AGIExecStart'
 import {Alarm} from './Alarm'
@@ -26,14 +28,16 @@ import {AorListComplete} from './AorListComplete'
 // import {AuthListComplete} from './AuthListComplete'
 // import {AuthMethodNotAllowed} from './AuthMethodNotAllowed'
 // import {BlindTransfer} from './BlindTransfer'
-// import {BridgeCreate} from './BridgeCreate'
-// import {BridgeDestroy} from './BridgeDestroy'
-// import {BridgeEnter} from './BridgeEnter'
-// import {BridgeInfoChannel} from './BridgeInfoChannel'
-// import {BridgeInfoComplete} from './BridgeInfoComplete'
-// import {BridgeLeave} from './BridgeLeave'
-// import {BridgeMerge} from './BridgeMerge'
-// import {BridgeVideoSourceUpdate} from './BridgeVideoSourceUpdate'
+import {
+    BridgeCreate,
+    BridgeDestroy,
+    BridgeEnter,
+    BridgeInfoChannel,
+    BridgeInfoComplete,
+    BridgeLeave,
+    BridgeMerge,
+    BridgeVideoSourceUpdate
+} from './BridgeEvents'
 // import {Cdr} from './Cdr'
 // import {CEL} from './CEL'
 // import {ChallengeResponseFailed} from './ChallengeResponseFailed'
@@ -135,15 +139,13 @@ import {Newstate} from './Newstate'
 // import {QueueCallerAbandon} from './QueueCallerAbandon'
 // import {QueueCallerJoin} from './QueueCallerJoin'
 // import {QueueCallerLeave} from './QueueCallerLeave'
-import {QueueEntry} from './QueueEntry'
 // import {QueueMemberAdded} from './QueueMemberAdded'
 // import {QueueMemberPause} from './QueueMemberPause'
 // import {QueueMemberPenalty} from './QueueMemberPenalty'
 // import {QueueMemberRemoved} from './QueueMemberRemoved'
 // import {QueueMemberRinginuse} from './QueueMemberRinginuse'
 // import {QueueMemberStatus} from './QueueMemberStatus'
-import {QueueParams} from './QueueParams'
-import {QueueMember} from './QueueMember'
+import {QueueEntry, QueueMember, QueueParams} from './QueueEvents'
 // import {ReceiveFAX} from './ReceiveFAX'
 // import {Registry} from './Registry'
 // import {Reload} from './Reload'
@@ -183,16 +185,11 @@ export type AmiChannelEvent = AgentCalled
     | DialBegin
     | DialEnd
     | DialState
-
     | Hangup
-
     | Hold
-
     | Newchannel
     | NewConnectedLine
-
     | Newstate
-
     | Unhold
 
 export type AmiDeviceEvent = unknown;
@@ -227,14 +224,14 @@ export type AmiEvent =
 //     | AuthListComplete
 //     | AuthMethodNotAllowed
 //     | BlindTransfer
-//     | BridgeCreate
-//     | BridgeDestroy
-//     | BridgeEnter
-//     | BridgeInfoChannel
-//     | BridgeInfoComplete
-//     | BridgeLeave
-//     | BridgeMerge
-//     | BridgeVideoSourceUpdate
+    | BridgeCreate
+    | BridgeDestroy
+    | BridgeEnter
+    | BridgeInfoChannel
+    | BridgeInfoComplete
+    | BridgeLeave
+    | BridgeMerge
+    | BridgeVideoSourceUpdate
 //     | Cdr
 //     | CEL
 //     | ChallengeResponseFailed
