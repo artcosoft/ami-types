@@ -136,16 +136,20 @@ import {Newstate} from './Newstate'
 // import {PresenceStateChange} from './PresenceStateChange'
 // import {PresenceStateListComplete} from './PresenceStateListComplete'
 // import {PresenceStatus} from './PresenceStatus'
-// import {QueueCallerAbandon} from './QueueCallerAbandon'
-// import {QueueCallerJoin} from './QueueCallerJoin'
-// import {QueueCallerLeave} from './QueueCallerLeave'
-// import {QueueMemberAdded} from './QueueMemberAdded'
-// import {QueueMemberPause} from './QueueMemberPause'
-// import {QueueMemberPenalty} from './QueueMemberPenalty'
-// import {QueueMemberRemoved} from './QueueMemberRemoved'
-// import {QueueMemberRinginuse} from './QueueMemberRinginuse'
-// import {QueueMemberStatus} from './QueueMemberStatus'
-import {QueueEntry, QueueMember, QueueParams} from './QueueEvents'
+import {
+    QueueCallerAbandon,
+    QueueCallerJoin,
+    QueueCallerLeave,
+    QueueEntry,
+    QueueMember,
+    QueueMemberAdded,
+    QueueMemberPause,
+    QueueMemberPenalty,
+    QueueMemberRemoved,
+    QueueMemberRinginuse,
+    QueueMemberStatus,
+    QueueParams
+} from './QueueEvents'
 // import {ReceiveFAX} from './ReceiveFAX'
 // import {Registry} from './Registry'
 // import {Reload} from './Reload'
@@ -330,16 +334,16 @@ export type AmiEvent =
     // | PresenceStateChange
     // | PresenceStateListComplete
     // | PresenceStatus
-    // | QueueCallerAbandon
-    // | QueueCallerJoin
-    // | QueueCallerLeave
+    | QueueCallerAbandon
+    | QueueCallerJoin
+    | QueueCallerLeave
     | QueueEntry
-    // | QueueMemberAdded
-    // | QueueMemberPause
-    // | QueueMemberPenalty
-    // | QueueMemberRemoved
-    // | QueueMemberRinginuse
-    // | QueueMemberStatus
+    | QueueMemberAdded
+    | QueueMemberPause
+    | QueueMemberPenalty
+    | QueueMemberRemoved
+    | QueueMemberRinginuse
+    | QueueMemberStatus
     | QueueParams
     | QueueMember
     // | ReceiveFAX
