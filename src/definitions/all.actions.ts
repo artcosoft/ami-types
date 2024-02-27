@@ -6,14 +6,17 @@ import {
     BlindTransfer,
     Bridge,
     BridgeDestroy,
-    CancelAtxfer,
     BridgeInfo,
     BridgeKick,
     BridgeList,
     BridgeTechnologyList,
     BridgeTechnologySuspend,
     BridgeTechnologyUnsuspend,
+    CancelAtxfer,
     Command,
+    DBDel,
+    DBDelTree,
+    DBPut,
     DeviceStateList,
     Events,
     ExtensionState,
@@ -224,6 +227,11 @@ export type AmiActions = {
     BridgeTechnologyUnsuspend: BridgeTechnologyUnsuspend,
     CancelAtxfer: CancelAtxfer
     Command: Command
+
+    DBDel: DBDel,
+    DBPut: DBPut,
+    DBDelTree: DBDelTree,
+
     DeviceStateList: DeviceStateList
     Events: Events
     ExtensionState: ExtensionState

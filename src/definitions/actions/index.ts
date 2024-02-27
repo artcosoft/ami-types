@@ -3,6 +3,7 @@ export * from './BridgeActions'
 export * from './QueueActions'
 export * from './PJSIPActions'
 export * from './CallActions'
+export * from './DB'
 
 /* else to */
 export * from './AbsoluteTimeout'
