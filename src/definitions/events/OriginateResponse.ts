@@ -14,3 +14,4 @@ type Payload = {
 
 export type OriginateResponse = GenericAmiEvent<"OriginateResponse", Payload>
 
+ 
