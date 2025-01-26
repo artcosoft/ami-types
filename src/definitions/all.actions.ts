@@ -24,6 +24,7 @@ import {
     Hangup,
     Login,
     Logoff,
+    Reload,
     Originate,
     Park,
     PJSIPNotify,
@@ -240,6 +241,7 @@ export type AmiActions = {
     Hangup: Hangup
     Login: Login
     Logoff: Logoff
+    Reload: Reload
     Originate: Originate
     Park: Park
     PJSIPNotify: PJSIPNotify

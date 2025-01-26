@@ -17,6 +17,7 @@ export * from './Getvar'
 export * from './CallActions/Hangup'
 export * from './Login'
 export * from './Logoff'
+export * from './Reload'
 export * from './Setvar'
 export * from './ShowDialPlan'
 
