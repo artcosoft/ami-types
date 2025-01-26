@@ -126,6 +126,7 @@ import {Newchannel} from './Newchannel'
 import {NewConnectedLine} from './NewConnectedLine'
 // import {NewExten} from './NewExten'
 import {Newstate} from './Newstate'
+import { OriginateResponse } from './OriginateResponse'
 // import {OriginateResponse} from './OriginateResponse'
 // import {ParkedCall} from './ParkedCall'
 // import {ParkedCallGiveUp} from './ParkedCallGiveUp'
@@ -324,7 +325,7 @@ export type AmiEvent =
     | NewConnectedLine
     // | NewExten
     | Newstate
-    // | OriginateResponse
+    | OriginateResponse
     // | ParkedCall
     // | ParkedCallGiveUp
     // | ParkedCallSwap
