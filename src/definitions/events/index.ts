@@ -58,7 +58,7 @@ import {
 // import {ConfbridgeUnmute} from './ConfbridgeUnmute'
 // import {ContactList} from './ContactList'
 // import {ContactListComplete} from './ContactListComplete'
-// import {ContactStatus} from './ContactStatus'
+import {ContactStatus} from './ContactStatus'
 // import {ContactStatusDetail} from './ContactStatusDetail'
 // import {CoreShowChannel} from './CoreShowChannel'
 // import {CoreShowChannelsComplete} from './CoreShowChannelsComplete'
@@ -257,7 +257,7 @@ export type AmiEvent =
 //     | ConfbridgeUnmute
 //     | ContactList
 //     | ContactListComplete
-//     | ContactStatus
+    | ContactStatus
 //     | ContactStatusDetail
 //     | CoreShowChannel
 //     | CoreShowChannelsComplete
