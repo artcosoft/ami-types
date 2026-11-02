@@ -1,0 +1,429 @@
+{
+    "_doc": "Manual input for generate.py. Every event/action entry has a reason. Source references are Asterisk 22.11.0.",
+    "namedTypeFiles": ["channel.types", "event.types"],
+    "layout": {
+        "actions": [
+            {
+                "folder": "BridgeActions",
+                "prefixes": ["Bridge"]
+            },
+            {
+                "folder": "CallActions",
+                "names": [
+                    "Atxfer",
+                    "BlindTransfer",
+                    "CancelAtxfer",
+                    "Hangup",
+                    "Originate",
+                    "Park",
+                    "Redirect"
+                ]
+            },
+            {
+                "folder": "QueueActions",
+                "prefixes": ["Queue"]
+            },
+            {
+                "folder": "PJSIPActions",
+                "prefixes": ["PJSIP"]
+            },
+            {
+                "folder": "DB",
+                "prefixes": ["DB"]
+            },
+            {
+                "folder": "ConfbridgeActions",
+                "prefixes": ["Confbridge"]
+            },
+            {
+                "folder": "MeetmeActions",
+                "prefixes": ["Meetme"]
+            },
+            {
+                "folder": "DAHDIActions",
+                "prefixes": ["DAHDI", "PRI"]
+            },
+            {
+                "folder": "IAXActions",
+                "prefixes": ["IAX"]
+            },
+            {
+                "folder": "VoicemailActions",
+                "prefixes": ["Voicemail", "MWI", "Mailbox"]
+            },
+            {
+                "folder": "SorceryActions",
+                "prefixes": ["SorceryMemoryCache"]
+            },
+            {
+                "folder": "FAXActions",
+                "prefixes": ["FAX"]
+            },
+            {
+                "folder": "MonitorActions",
+                "prefixes": ["MixMonitor", "StopMixMonitor"]
+            },
+            {
+                "folder": "ConfigActions",
+                "names": [
+                    "GetConfig",
+                    "GetConfigJSON",
+                    "UpdateConfig",
+                    "CreateConfig",
+                    "ListCategories"
+                ]
+            },
+            {
+                "folder": "DialplanActions",
+                "names": ["DialplanExtensionAdd", "DialplanExtensionRemove"]
+            },
+            {
+                "folder": "ParkingActions",
+                "names": ["ParkedCalls", "Parkinglots"]
+            }
+        ],
+        "events": [
+            {
+                "folder": "AgentEvents",
+                "prefixes": ["Agent"]
+            },
+            {
+                "folder": "BridgeEvents",
+                "prefixes": ["Bridge"]
+            },
+            {
+                "folder": "QueueEvents",
+                "prefixes": ["Queue"]
+            },
+            {
+                "folder": "ConfbridgeEvents",
+                "prefixes": ["Confbridge"]
+            },
+            {
+                "folder": "MeetmeEvents",
+                "prefixes": ["Meetme"]
+            },
+            {
+                "folder": "CCEvents",
+                "prefixes": ["CCA", "CCC", "CCF", "CCM", "CCO", "CCR"]
+            },
+            {
+                "folder": "DAHDIEvents",
+                "prefixes": ["DAHDI", "PRI", "SpanAlarm"]
+            },
+            {
+                "folder": "FAXEvents",
+                "prefixes": ["FAX", "ReceiveFAX", "SendFAX"]
+            },
+            {
+                "folder": "ParkingEvents",
+                "prefixes": ["ParkedCall", "UnParkedCall", "Parkinglot"]
+            },
+            {
+                "folder": "VoicemailEvents",
+                "prefixes": [
+                    "Voicemail",
+                    "MWIGet",
+                    "MessageWaiting",
+                    "MiniVoiceMail"
+                ]
+            },
+            {
+                "folder": "DBEvents",
+                "prefixes": ["DBGet"]
+            },
+            {
+                "folder": "IAXEvents",
+                "names": [
+                    "PeerEntry",
+                    "PeerlistComplete",
+                    "RegistryEntry",
+                    "RegistrationsComplete"
+                ]
+            },
+            {
+                "folder": "SecurityEvents",
+                "names": [
+                    "AuthMethodNotAllowed",
+                    "ChallengeResponseFailed",
+                    "ChallengeSent",
+                    "FailedACL",
+                    "InvalidAccountID",
+                    "InvalidPassword",
+                    "InvalidTransport",
+                    "LoadAverageLimit",
+                    "MemoryLimit",
+                    "RequestBadFormat",
+                    "RequestNotAllowed",
+                    "RequestNotSupported",
+                    "SessionLimit",
+                    "SuccessfulAuth",
+                    "UnexpectedAddress"
+                ]
+            }
+        ]
+    },
+    "events": {
+        "QueueParams": {
+            "reason": "the docs list ServiceLevelPerf/ServiceLevelPerf2 and omit Queue, ServiceLevel and Weight; app_queue.c:10925 sends the fields below.",
+            "replaceFields": [
+                {
+                    "name": "Queue"
+                },
+                {
+                    "name": "Max"
+                },
+                {
+                    "name": "Strategy"
+                },
+                {
+                    "name": "Calls"
+                },
+                {
+                    "name": "Holdtime"
+                },
+                {
+                    "name": "TalkTime"
+                },
+                {
+                    "name": "Completed"
+                },
+                {
+                    "name": "Abandoned"
+                },
+                {
+                    "name": "ServiceLevel"
+                },
+                {
+                    "name": "ServicelevelPerf"
+                },
+                {
+                    "name": "ServicelevelPerf2"
+                },
+                {
+                    "name": "Weight"
+                }
+            ]
+        },
+        "ConfbridgeList": {
+            "reason": "EndMarkedAny is sent (app_confbridge.c:4065) but not documented.",
+            "addFields": [
+                {
+                    "name": "EndMarkedAny",
+                    "values": ["Yes", "No"]
+                }
+            ]
+        },
+        "LogChannel": {
+            "reason": "Enabled and Reason are sent (logger.c:1255, logger.c:1987) but not documented.",
+            "addFields": [
+                {
+                    "name": "Enabled",
+                    "values": ["Yes", "No"]
+                },
+                {
+                    "name": "Reason",
+                    "optional": true,
+                    "doc": "Sent when Enabled is No: \"<errno> - <message>\"."
+                }
+            ]
+        },
+        "QueueMember": {
+            "reason": "Status is an ast_device_state number; typed with the QueueMemberDeviceStatus enum as in the other QueueMember* events.",
+            "fieldTypes": {
+                "Status": "QueueMemberDeviceStatus"
+            }
+        },
+        "QueueMemberAdded": {
+            "fieldTypes": {
+                "Status": "QueueMemberDeviceStatus"
+            },
+            "required": ["PausedReason"],
+            "reason": "PausedReason is always sent (app_queue.c:2613 queue_member_blob_create)."
+        },
+        "QueueMemberPause": {
+            "fieldTypes": {
+                "Status": "QueueMemberDeviceStatus"
+            },
+            "required": ["PausedReason"]
+        },
+        "QueueMemberPenalty": {
+            "fieldTypes": {
+                "Status": "QueueMemberDeviceStatus"
+            },
+            "required": ["PausedReason"]
+        },
+        "QueueMemberRemoved": {
+            "fieldTypes": {
+                "Status": "QueueMemberDeviceStatus"
+            },
+            "required": ["PausedReason"]
+        },
+        "QueueMemberRinginuse": {
+            "fieldTypes": {
+                "Status": "QueueMemberDeviceStatus"
+            },
+            "required": ["PausedReason"]
+        },
+        "QueueMemberStatus": {
+            "fieldTypes": {
+                "Status": "QueueMemberDeviceStatus"
+            },
+            "required": ["PausedReason"]
+        },
+        "AttendedTransfer": {
+            "reason": "transferee/target snapshots, both transferer bridges and the Dest*/LocalOne/LocalTwo headers depend on the transfer (stasis_bridges.c attended_transfer_to_ami).",
+            "optionalPrefixes": [
+                "Transferee",
+                "TransferTarget",
+                "OrigBridge",
+                "SecondBridge",
+                "LocalOne",
+                "LocalTwo"
+            ],
+            "optional": [
+                "DestBridgeUniqueid",
+                "DestApp",
+                "DestTransfererChannel"
+            ]
+        },
+        "BlindTransfer": {
+            "reason": "the bridge and transferee snapshots are sent only when present (stasis_bridges.c blind_transfer_to_ami).",
+            "optionalPrefixes": ["Bridge", "Transferee"]
+        },
+        "InboundSubscriptionDetail": {
+            "reason": "Extension/ExtensionStates are sent for extension_state subscriptions, Mailboxes for mwi ones.",
+            "optional": ["Extension", "ExtensionStates", "Mailboxes"]
+        },
+        "OutboundSubscriptionDetail": {
+            "reason": "Extension/ExtensionStates are sent for extension_state subscriptions, Mailboxes for mwi ones.",
+            "optional": ["Extension", "ExtensionStates", "Mailboxes"]
+        },
+        "Cdr": {
+            "reason": "UserField is always sent (cdr_manager.c:330); the doc wording only looks conditional.",
+            "required": ["UserField"]
+        },
+        "TransportDetail": {
+            "required": ["Bind"]
+        }
+    },
+    "dropRequestEnums": {
+        "_doc": "Documented enumlists that describe value formats rather than literal values.",
+        "PJSIPHangup": ["Cause"]
+    },
+    "actions": {
+        "QueueAdd": {
+            "fieldTypes": {
+                "Penalty": "string | number",
+                "Paused": "boolean | string"
+            }
+        },
+        "QueuePause": {
+            "fieldTypes": {
+                "Paused": "boolean | string"
+            }
+        },
+        "QueuePenalty": {
+            "fieldTypes": {
+                "Penalty": "string | number"
+            }
+        },
+        "QueueChangePriorityCaller": {
+            "fieldTypes": {
+                "Priority": "string | number"
+            }
+        },
+        "AgentLogoff": {
+            "fieldTypes": {
+                "Soft": "boolean | string"
+            }
+        },
+        "Command": {
+            "responseFields": [
+                {
+                    "name": "Output",
+                    "type": "string | string[]",
+                    "doc": "One Output header per line of CLI output; AMI clients usually collect repeated headers into an array."
+                }
+            ]
+        },
+        "Originate": {
+            "reason": "AMI clients send an array as repeated Variable headers.",
+            "fieldTypes": {
+                "Variable": "string | string[]"
+            }
+        },
+        "PJSIPNotify": {
+            "reason": "AMI clients send an array as repeated Variable headers.",
+            "fieldTypes": {
+                "Variable": "string | string[]"
+            }
+        },
+        "QueueRule": {
+            "reason": "RuleList and Rule repeat once per rule list / rule.",
+            "responseFields": [
+                {
+                    "name": "RuleList",
+                    "type": "string | string[]",
+                    "optional": true,
+                    "doc": "One header per rule list."
+                },
+                {
+                    "name": "Rule",
+                    "type": "string | string[]",
+                    "optional": true,
+                    "doc": "One header per rule (\"time,max,min\"), following its RuleList."
+                }
+            ]
+        }
+    },
+    "eventGroups": {
+        "_doc": "Hand-picked unions exported next to AmiEvent.",
+        "AmiChannelEvent": [
+            "AgentCalled",
+            "AgentComplete",
+            "AgentConnect",
+            "AgentDump",
+            "AgentLogin",
+            "AgentLogoff",
+            "AgentRingNoAnswer",
+            "DialBegin",
+            "DialEnd",
+            "DialState",
+            "Hangup",
+            "Hold",
+            "Newchannel",
+            "NewConnectedLine",
+            "Newstate",
+            "Unhold"
+        ],
+        "AmiDeviceEvent": [
+            "DeviceStateChange",
+            "ExtensionStatus",
+            "PresenceStateChange",
+            "PresenceStatus"
+        ],
+        "AmiQueueEvent": [
+            "QueueCallerAbandon",
+            "QueueCallerJoin",
+            "QueueCallerLeave",
+            "QueueMemberAdded",
+            "QueueMemberPause",
+            "QueueMemberPenalty",
+            "QueueMemberRemoved",
+            "QueueMemberRinginuse",
+            "QueueMemberStatus"
+        ]
+    },
+    "actionId": {
+        "_doc": "ActionID is typed as required on events that are part of an action's reply (amiAction() always sets ActionID). These events are also broadcast unsolicited, so ActionID stays optional on them.",
+        "unsolicited": [
+            "DeviceStateChange",
+            "ExtensionStatus",
+            "PresenceStateChange",
+            "ParkedCall",
+            "PJSIPMaintenanceStatus"
+        ],
+        "alsoRequired": ["OriginateResponse"]
+    }
+}

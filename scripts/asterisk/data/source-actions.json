@@ -1,0 +1,2161 @@
+{
+ "_doc": "What each AMI action of Asterisk 22.11.0 returns, read from the C handler (source = handler definition): extra Response headers, list item / complete events, other events it triggers.",
+ "AGI": {
+  "source": "res/res_agi.c:1869",
+  "responseKind": "simple",
+  "successMessage": "Added AGI command to queue",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "AsyncAGIExec"
+  ],
+  "note": "AsyncAGIExec published via stasis when the queued command runs (async)."
+ },
+ "AOCMessage": {
+  "source": "main/manager.c:4986",
+  "responseKind": "simple",
+  "successMessage": "AOC Message successfully queued on channel",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "AbsoluteTimeout": {
+  "source": "main/manager.c:5585",
+  "responseKind": "simple",
+  "successMessage": "Timeout Set",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "AgentLogoff": {
+  "source": "apps/app_agent_pool.c:2628",
+  "responseKind": "simple",
+  "successMessage": "Agent logged out",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "AgentLogoff"
+  ],
+  "note": "AgentLogoff published via stasis when the agent actually logs out (async)."
+ },
+ "Agents": {
+  "source": "apps/app_agent_pool.c:2550",
+  "responseKind": "list",
+  "successMessage": "Agents will follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "Agents"
+  ],
+  "completeEvent": "AgentsComplete",
+  "otherEvents": [],
+  "note": ""
+ },
+ "Atxfer": {
+  "source": "main/manager.c:4196",
+  "responseKind": "simple",
+  "successMessage": "Atxfer successfully queued",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "BlindTransfer": {
+  "source": "main/manager.c:4150",
+  "responseKind": "simple",
+  "successMessage": "Transfer succeeded",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "Bridge": {
+  "source": "main/features.c:735",
+  "responseKind": "simple",
+  "successMessage": "Channels have been bridged",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "BridgeDestroy": {
+  "source": "main/manager_bridges.c:645",
+  "responseKind": "simple",
+  "successMessage": "Bridge has been destroyed",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "BridgeInfo": {
+  "source": "main/manager_bridges.c:596",
+  "responseKind": "list",
+  "successMessage": "Bridge channel listing will follow",
+  "responseFields": [
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "start"
+    ],
+    "note": ""
+   }
+  ],
+  "listItemEvents": [
+   "BridgeInfoChannel"
+  ],
+  "completeEvent": "BridgeInfoComplete",
+  "otherEvents": [],
+  "note": "BridgeInfoComplete also carries the bridge snapshot headers (BridgeUniqueid, BridgeType, ...)."
+ },
+ "BridgeKick": {
+  "source": "main/manager_bridges.c:667",
+  "responseKind": "simple",
+  "successMessage": "Channel has been kicked",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "BridgeList": {
+  "source": "main/manager_bridges.c:525",
+  "responseKind": "list",
+  "successMessage": "Bridge listing will follow",
+  "responseFields": [
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "start"
+    ],
+    "note": ""
+   }
+  ],
+  "listItemEvents": [
+   "BridgeListItem"
+  ],
+  "completeEvent": "BridgeListComplete",
+  "otherEvents": [],
+  "note": ""
+ },
+ "BridgeTechnologyList": {
+  "source": "main/bridge.c:5670",
+  "responseKind": "list",
+  "successMessage": "Bridge technology listing will follow",
+  "responseFields": [
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "start"
+    ],
+    "note": ""
+   }
+  ],
+  "listItemEvents": [
+   "BridgeTechnologyListItem"
+  ],
+  "completeEvent": "BridgeTechnologyListComplete",
+  "otherEvents": [],
+  "note": ""
+ },
+ "BridgeTechnologySuspend": {
+  "source": "main/bridge.c:5660",
+  "responseKind": "simple",
+  "successMessage": "Suspended bridge technology",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Implemented in handle_manager_bridge_tech_suspend (main/bridge.c:5626)."
+ },
+ "BridgeTechnologyUnsuspend": {
+  "source": "main/bridge.c:5665",
+  "responseKind": "simple",
+  "successMessage": "Unsuspended bridge technology",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Implemented in handle_manager_bridge_tech_suspend (main/bridge.c:5626)."
+ },
+ "CancelAtxfer": {
+  "source": "main/manager.c:4250",
+  "responseKind": "simple",
+  "successMessage": "CancelAtxfer successfully queued",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "Challenge": {
+  "source": "main/manager.c:3455",
+  "responseKind": "fields",
+  "successMessage": null,
+  "responseFields": [
+   {
+    "name": "Challenge",
+    "optional": false,
+    "values": null,
+    "note": "random number; used as MD5 salt for Login AuthType=MD5"
+   }
+  ],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "No Message header. Error unless AuthType=MD5."
+ },
+ "Command": {
+  "source": "main/manager.c:4327",
+  "responseKind": "special",
+  "successMessage": "Command output follows",
+  "responseFields": [
+   {
+    "name": "Output",
+    "optional": false,
+    "values": null,
+    "note": "repeated, one header per CLI output line"
+   }
+  ],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Response is Success or Error per CLI result, both with Output lines. On temp-file errors Message differs and no Output."
+ },
+ "ConfbridgeKick": {
+  "source": "apps/app_confbridge.c:4266",
+  "responseKind": "simple",
+  "successMessage": null,
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "ConfbridgeLeave"
+  ],
+  "note": "Message: 'All participants kicked' if Channel=all, else 'User kicked'. ConfbridgeLeave when kicked users leave (async)."
+ },
+ "ConfbridgeList": {
+  "source": "apps/app_confbridge.c:4098",
+  "responseKind": "list",
+  "successMessage": "Confbridge user list will follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "ConfbridgeList"
+  ],
+  "completeEvent": "ConfbridgeListComplete",
+  "otherEvents": [],
+  "note": "ConfbridgeList items also carry channel snapshot headers."
+ },
+ "ConfbridgeListRooms": {
+  "source": "apps/app_confbridge.c:4143",
+  "responseKind": "list",
+  "successMessage": "Confbridge conferences will follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "ConfbridgeListRooms"
+  ],
+  "completeEvent": "ConfbridgeListRoomsComplete",
+  "otherEvents": [],
+  "note": "No conferences: Response: Error 'No active conferences.'"
+ },
+ "ConfbridgeLock": {
+  "source": "apps/app_confbridge.c:4261",
+  "responseKind": "simple",
+  "successMessage": "Conference locked",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "ConfbridgeMute": {
+  "source": "apps/app_confbridge.c:4232",
+  "responseKind": "simple",
+  "successMessage": "User muted",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "ConfbridgeMute"
+  ],
+  "note": "ConfbridgeMute per affected user via stasis (async)."
+ },
+ "ConfbridgeSetSingleVideoSrc": {
+  "source": "apps/app_confbridge.c:4378",
+  "responseKind": "simple",
+  "successMessage": "Conference single video source set.",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "ConfbridgeStartRecord": {
+  "source": "apps/app_confbridge.c:4299",
+  "responseKind": "simple",
+  "successMessage": "Conference Recording Started.",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "ConfbridgeRecord"
+  ],
+  "note": "ConfbridgeRecord via stasis (async)."
+ },
+ "ConfbridgeStopRecord": {
+  "source": "apps/app_confbridge.c:4344",
+  "responseKind": "simple",
+  "successMessage": "Conference Recording Stopped.",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "ConfbridgeStopRecord"
+  ],
+  "note": "ConfbridgeStopRecord via stasis (async)."
+ },
+ "ConfbridgeUnlock": {
+  "source": "apps/app_confbridge.c:4257",
+  "responseKind": "simple",
+  "successMessage": "Conference unlocked",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "ConfbridgeUnmute": {
+  "source": "apps/app_confbridge.c:4228",
+  "responseKind": "simple",
+  "successMessage": "User unmuted",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "ConfbridgeUnmute"
+  ],
+  "note": "ConfbridgeUnmute per affected user via stasis (async)."
+ },
+ "ControlPlayback": {
+  "source": "apps/app_controlplayback.c:292",
+  "responseKind": "simple",
+  "successMessage": null,
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "astman_send_ack with NULL message: no Message header."
+ },
+ "CoreSettings": {
+  "source": "main/manager.c:6529",
+  "responseKind": "fields",
+  "successMessage": null,
+  "responseFields": [
+   {
+    "name": "AMIversion",
+    "optional": false,
+    "values": [
+     "11.0.0"
+    ],
+    "note": "AMI_VERSION macro"
+   },
+   {
+    "name": "AsteriskVersion",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "SystemName",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "CoreMaxCalls",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "CoreMaxLoadAvg",
+    "optional": false,
+    "values": null,
+    "note": "%f"
+   },
+   {
+    "name": "CoreRunUser",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "CoreRunGroup",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "CoreMaxFilehandles",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "CoreRealTimeEnabled",
+    "optional": false,
+    "values": [
+     "Yes",
+     "No"
+    ],
+    "note": ""
+   },
+   {
+    "name": "CoreCDRenabled",
+    "optional": false,
+    "values": [
+     "Yes",
+     "No"
+    ],
+    "note": ""
+   },
+   {
+    "name": "CoreHTTPenabled",
+    "optional": false,
+    "values": [
+     "Yes",
+     "No"
+    ],
+    "note": ""
+   },
+   {
+    "name": "SoundsSearchCustomDir",
+    "optional": false,
+    "values": [
+     "Yes",
+     "No"
+    ],
+    "note": ""
+   }
+  ],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Hand-written response; no Message header."
+ },
+ "CoreShowChannelMap": {
+  "source": "main/manager.c:6815",
+  "responseKind": "list",
+  "successMessage": "Channel map will follow",
+  "responseFields": [
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "start"
+    ],
+    "note": ""
+   }
+  ],
+  "listItemEvents": [
+   "CoreShowChannelMap"
+  ],
+  "completeEvent": "CoreShowChannelMapComplete",
+  "otherEvents": [],
+  "note": "Error 'Could not complete channel map' can follow the listack."
+ },
+ "CoreShowChannels": {
+  "source": "main/manager.c:6647",
+  "responseKind": "list",
+  "successMessage": "Channels will follow",
+  "responseFields": [
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "start"
+    ],
+    "note": ""
+   }
+  ],
+  "listItemEvents": [
+   "CoreShowChannel"
+  ],
+  "completeEvent": "CoreShowChannelsComplete",
+  "otherEvents": [],
+  "note": ""
+ },
+ "CoreStatus": {
+  "source": "main/manager.c:6573",
+  "responseKind": "fields",
+  "successMessage": null,
+  "responseFields": [
+   {
+    "name": "CoreStartupDate",
+    "optional": false,
+    "values": null,
+    "note": "%Y-%m-%d"
+   },
+   {
+    "name": "CoreStartupTime",
+    "optional": false,
+    "values": null,
+    "note": "%H:%M:%S"
+   },
+   {
+    "name": "CoreReloadDate",
+    "optional": false,
+    "values": null,
+    "note": "%Y-%m-%d"
+   },
+   {
+    "name": "CoreReloadTime",
+    "optional": false,
+    "values": null,
+    "note": "%H:%M:%S"
+   },
+   {
+    "name": "CoreCurrentCalls",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "CoreProcessedCalls",
+    "optional": false,
+    "values": null,
+    "note": ""
+   }
+  ],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Hand-written response; no Message header."
+ },
+ "CreateConfig": {
+  "source": "main/manager.c:3048",
+  "responseKind": "simple",
+  "successMessage": "New configuration file created successfully",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "DAHDIDNDoff": {
+  "source": "channels/chan_dahdi.c:17101",
+  "responseKind": "simple",
+  "successMessage": "DND Disabled",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "DAHDIDNDon": {
+  "source": "channels/chan_dahdi.c:17082",
+  "responseKind": "simple",
+  "successMessage": "DND Enabled",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "DAHDIDialOffhook": {
+  "source": "channels/chan_dahdi.c:17166",
+  "responseKind": "simple",
+  "successMessage": "DAHDIDialOffhook",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "DAHDIHangup": {
+  "source": "channels/chan_dahdi.c:17143",
+  "responseKind": "simple",
+  "successMessage": "DAHDIHangup",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "DAHDIRestart": {
+  "source": "channels/chan_dahdi.c:16071",
+  "responseKind": "simple",
+  "successMessage": "DAHDIRestart: Success",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "DAHDIShowChannels": {
+  "source": "channels/chan_dahdi.c:17198",
+  "responseKind": "list",
+  "successMessage": "DAHDI channel status will follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "DAHDIShowChannels"
+  ],
+  "completeEvent": "DAHDIShowChannelsComplete",
+  "otherEvents": [],
+  "note": "Complete event carries Items twice (ListItems via list_complete_start + extra Items header)."
+ },
+ "DAHDIShowStatus": {
+  "source": "channels/chan_dahdi.c:17286",
+  "responseKind": "list",
+  "successMessage": "DAHDI span statuses will follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "DAHDIShowStatus"
+  ],
+  "completeEvent": "DAHDIShowStatusComplete",
+  "otherEvents": [],
+  "note": "Complete event also has extra Items header."
+ },
+ "DAHDITransfer": {
+  "source": "channels/chan_dahdi.c:17120",
+  "responseKind": "simple",
+  "successMessage": "DAHDITransfer",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "DBDel": {
+  "source": "main/db.c:1140",
+  "responseKind": "simple",
+  "successMessage": "Key deleted successfully",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "DBDelTree": {
+  "source": "main/db.c:1165",
+  "responseKind": "simple",
+  "successMessage": "Key tree deleted successfully",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "DBGet": {
+  "source": "main/db.c:1032",
+  "responseKind": "list",
+  "successMessage": "Result will follow",
+  "responseFields": [
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "start"
+    ],
+    "note": ""
+   }
+  ],
+  "listItemEvents": [
+   "DBGetResponse"
+  ],
+  "completeEvent": "DBGetComplete",
+  "otherEvents": [],
+  "note": "Always exactly one DBGetResponse item."
+ },
+ "DBGetTree": {
+  "source": "main/db.c:1074",
+  "responseKind": "list",
+  "successMessage": "Result will follow",
+  "responseFields": [
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "start"
+    ],
+    "note": ""
+   }
+  ],
+  "listItemEvents": [
+   "DBGetTreeResponse"
+  ],
+  "completeEvent": "DBGetTreeComplete",
+  "otherEvents": [],
+  "note": ""
+ },
+ "DBPut": {
+  "source": "main/db.c:1007",
+  "responseKind": "simple",
+  "successMessage": "Updated database successfully",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "DeviceStateList": {
+  "source": "res/res_manager_devicestate.c:79",
+  "responseKind": "list",
+  "successMessage": "Device State Changes will follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "DeviceStateChange"
+  ],
+  "completeEvent": "DeviceStateListComplete",
+  "otherEvents": [],
+  "note": "Items are cached stasis messages rendered via stasis_message_to_ami."
+ },
+ "DialplanExtensionAdd": {
+  "source": "pbx/pbx_config.c:1203",
+  "responseKind": "simple",
+  "successMessage": "Added requested extension",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "DialplanExtensionRemove": {
+  "source": "pbx/pbx_config.c:510",
+  "responseKind": "simple",
+  "successMessage": null,
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Message is 'Removed the requested priority from the extension' if Priority given, else 'Removed the requested extension'."
+ },
+ "Events": {
+  "source": "main/manager.c:3357",
+  "responseKind": "fields",
+  "successMessage": null,
+  "responseFields": [
+   {
+    "name": "Events",
+    "optional": false,
+    "values": [
+     "On",
+     "Off"
+    ],
+    "note": ""
+   }
+  ],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "No Message header. With broken_events_action=yes, no reply at all on error or when mask equals 'all'."
+ },
+ "ExtensionState": {
+  "source": "main/manager.c:5512",
+  "responseKind": "fields",
+  "successMessage": "Extension Status",
+  "responseFields": [
+   {
+    "name": "Exten",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Context",
+    "optional": false,
+    "values": null,
+    "note": "'default' if not given"
+   },
+   {
+    "name": "Hint",
+    "optional": false,
+    "values": null,
+    "note": "empty if no hint"
+   },
+   {
+    "name": "Status",
+    "optional": false,
+    "values": null,
+    "note": "numeric extension state; -1 not found"
+   },
+   {
+    "name": "StatusText",
+    "optional": false,
+    "values": [
+     "Idle",
+     "InUse",
+     "Busy",
+     "Unavailable",
+     "Ringing",
+     "InUse&Ringing",
+     "Hold",
+     "InUse&Hold",
+     "Unknown"
+    ],
+    "note": ""
+   }
+  ],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Message header written via astman_append after start_ack."
+ },
+ "ExtensionStateList": {
+  "source": "main/extension_state.c:1184",
+  "responseKind": "list",
+  "successMessage": "Extension Statuses will follow",
+  "responseFields": [
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "start"
+    ],
+    "note": ""
+   }
+  ],
+  "listItemEvents": [
+   "ExtensionStatus"
+  ],
+  "completeEvent": "ExtensionStateListComplete",
+  "otherEvents": [],
+  "note": "Error 'No dialplan hints are available' when there are no hints."
+ },
+ "FAXSession": {
+  "source": "res/res_fax.c:4244",
+  "responseKind": "events",
+  "successMessage": "FAXSession event will follow",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "FAXSession"
+  ],
+  "note": "FAXSession event built by the fax tech (res_fax_spandsp.c); omitted if building it fails."
+ },
+ "FAXSessions": {
+  "source": "res/res_fax.c:4450",
+  "responseKind": "list",
+  "successMessage": "FAXSessionsEntry event list will follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "FAXSessionsEntry"
+  ],
+  "completeEvent": "FAXSessionsComplete",
+  "otherEvents": [],
+  "note": "Listack uses EventList: Start (capital S). Complete has extra Total header."
+ },
+ "FAXStats": {
+  "source": "res/res_fax.c:4314",
+  "responseKind": "events",
+  "successMessage": "FAXStats event will follow",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "FAXStats"
+  ],
+  "note": ""
+ },
+ "Filter": {
+  "source": "main/manager.c:5737",
+  "responseKind": "simple",
+  "successMessage": "Success",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Only Operation=Add is accepted."
+ },
+ "GetConfig": {
+  "source": "main/manager.c:2452",
+  "responseKind": "fields",
+  "successMessage": null,
+  "responseFields": [
+   {
+    "name": "Category-NNNNNN",
+    "optional": true,
+    "values": null,
+    "note": "NNNNNN = 6-digit zero-padded category index; repeated"
+   },
+   {
+    "name": "IsTemplate-NNNNNN",
+    "optional": true,
+    "values": [
+     "1"
+    ],
+    "note": "only for template categories"
+   },
+   {
+    "name": "Templates-NNNNNN",
+    "optional": true,
+    "values": null,
+    "note": "comma list of inherited templates, if any"
+   },
+   {
+    "name": "Line-NNNNNN-NNNNNN",
+    "optional": true,
+    "values": null,
+    "note": "cat index, line index; value is name=value"
+   }
+  ],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "No Message header. Bare line 'No categories found' (not a header) if Category given and nothing matched."
+ },
+ "GetConfigJSON": {
+  "source": "main/manager.c:2600",
+  "responseKind": "fields",
+  "successMessage": null,
+  "responseFields": [
+   {
+    "name": "JSON",
+    "optional": false,
+    "values": null,
+    "note": "JSON object {category:{istemplate?,templates?,var:value}}"
+   }
+  ],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "No Message header."
+ },
+ "Getvar": {
+  "source": "main/manager.c:3633",
+  "responseKind": "fields",
+  "successMessage": null,
+  "responseFields": [
+   {
+    "name": "Variable",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Value",
+    "optional": false,
+    "values": null,
+    "note": "empty string if unset"
+   }
+  ],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "No Message header."
+ },
+ "Hangup": {
+  "source": "main/manager.c:3594",
+  "responseKind": "list",
+  "successMessage": null,
+  "responseFields": [
+   {
+    "name": "EventList",
+    "optional": true,
+    "values": [
+     "start"
+    ],
+    "note": "only in regex mode"
+   }
+  ],
+  "listItemEvents": [
+   "ChannelHungup"
+  ],
+  "completeEvent": "ChannelsHungupListComplete",
+  "otherEvents": [],
+  "note": "Plain Channel: simple ack 'Channel Hungup'. Channel=/regex/: listack 'Channels hung up will follow' + items. See ast_manager_hangup_helper."
+ },
+ "IAXnetstats": {
+  "source": "channels/chan_iax2.c:7351",
+  "responseKind": "special",
+  "successMessage": null,
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "No Response header: raw space-separated netstats lines per call (ACN_FORMAT2), then a blank line."
+ },
+ "IAXpeerlist": {
+  "source": "channels/chan_iax2.c:7420",
+  "responseKind": "list",
+  "successMessage": "IAX Peer status list will follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "PeerEntry"
+  ],
+  "completeEvent": "PeerlistComplete",
+  "otherEvents": [],
+  "note": "PeerEntry items have Channeltype: IAX, Mask/Port, no Description."
+ },
+ "IAXpeers": {
+  "source": "channels/chan_iax2.c:7398",
+  "responseKind": "list",
+  "successMessage": "Peer status list will follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "PeerEntry"
+  ],
+  "completeEvent": "PeerlistComplete",
+  "otherEvents": [],
+  "note": "PeerEntry items carry no ActionID (idtext left empty). Channeltype: IAX2."
+ },
+ "IAXregistry": {
+  "source": "channels/chan_iax2.c:7522",
+  "responseKind": "list",
+  "successMessage": "Registrations will follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "RegistryEntry"
+  ],
+  "completeEvent": "RegistrationsComplete",
+  "otherEvents": [],
+  "note": ""
+ },
+ "JabberSend": {
+  "source": "res/res_xmpp.c:4054",
+  "responseKind": "special",
+  "successMessage": "Attempting to send Jabber Message",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Ack first, then a 2nd response: Response: Error 'Could not find Sender', or bare Response: Success/Error (no Message)."
+ },
+ "ListCategories": {
+  "source": "main/manager.c:2524",
+  "responseKind": "fields",
+  "successMessage": null,
+  "responseFields": [
+   {
+    "name": "Category-NNNNNN",
+    "optional": true,
+    "values": null,
+    "note": "NNNNNN = 6-digit zero-padded index; repeated"
+   },
+   {
+    "name": "Error",
+    "optional": true,
+    "values": [
+     "no categories found"
+    ],
+    "note": "only when no category matched"
+   }
+  ],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "No Message header."
+ },
+ "ListCommands": {
+  "source": "main/manager.c:3338",
+  "responseKind": "fields",
+  "successMessage": null,
+  "responseFields": [
+   {
+    "name": "<ActionName>",
+    "optional": true,
+    "values": null,
+    "note": "one header per permitted action; value '<synopsis> (Priv: <perms>)'"
+   }
+  ],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "No Message header. Header names are the action names themselves."
+ },
+ "LocalOptimizeAway": {
+  "source": "main/core_local.c:1088",
+  "responseKind": "simple",
+  "successMessage": "Queued channel to be optimized away",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "LoggerRotate": {
+  "source": "main/manager.c:6896",
+  "responseKind": "simple",
+  "successMessage": "Reloaded the logger and rotated log files",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "Login": {
+  "source": "main/manager.c:3407",
+  "responseKind": "special",
+  "successMessage": null,
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "FullyBooted"
+  ],
+  "note": "Message 'Authentication accepted' or 'Already authenticated'. FullyBooted sent to session if it reads system events and core fully booted."
+ },
+ "Logoff": {
+  "source": "main/manager.c:3401",
+  "responseKind": "special",
+  "successMessage": "Thanks for all the fish.",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Response is 'Goodbye' (not Success); session is closed after."
+ },
+ "MWIDelete": {
+  "source": "res/res_mwi_external_ami.c:259",
+  "responseKind": "simple",
+  "successMessage": null,
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "astman_send_ack with NULL message: no Message header."
+ },
+ "MWIGet": {
+  "source": "res/res_mwi_external_ami.c:162",
+  "responseKind": "list",
+  "successMessage": "Mailboxes will follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "MWIGet"
+  ],
+  "completeEvent": "MWIGetComplete",
+  "otherEvents": [],
+  "note": ""
+ },
+ "MWIUpdate": {
+  "source": "res/res_mwi_external_ami.c:305",
+  "responseKind": "simple",
+  "successMessage": null,
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "astman_send_ack with NULL message: no Message header."
+ },
+ "MailboxCount": {
+  "source": "main/manager.c:5491",
+  "responseKind": "fields",
+  "successMessage": "Mailbox Message Count",
+  "responseFields": [
+   {
+    "name": "Mailbox",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "UrgMessages",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "NewMessages",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "OldMessages",
+    "optional": false,
+    "values": null,
+    "note": ""
+   }
+  ],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Message header written via astman_append after start_ack."
+ },
+ "MailboxStatus": {
+  "source": "main/manager.c:5474",
+  "responseKind": "fields",
+  "successMessage": "Mailbox Status",
+  "responseFields": [
+   {
+    "name": "Mailbox",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Waiting",
+    "optional": false,
+    "values": null,
+    "note": "ast_app_has_voicemail() result"
+   }
+  ],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Message header written via astman_append after start_ack."
+ },
+ "MeetmeList": {
+  "source": "apps/app_meetme.c:5135",
+  "responseKind": "list",
+  "successMessage": "Meetme user list will follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "MeetmeList"
+  ],
+  "completeEvent": "MeetmeListComplete",
+  "otherEvents": [],
+  "note": "No conferences at all: Response: Error 'No active conferences.'"
+ },
+ "MeetmeListRooms": {
+  "source": "apps/app_meetme.c:5207",
+  "responseKind": "list",
+  "successMessage": "Meetme conferences will follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "MeetmeListRooms"
+  ],
+  "completeEvent": "MeetmeListRoomsComplete",
+  "otherEvents": [],
+  "note": "No conferences: Response: Error 'No active conferences.'"
+ },
+ "MeetmeMute": {
+  "source": "apps/app_meetme.c:5125",
+  "responseKind": "simple",
+  "successMessage": "User muted",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "MeetmeMute"
+  ],
+  "note": "Handler only sets admin flag; conference thread later publishes MeetmeMute (async)."
+ },
+ "MeetmeUnmute": {
+  "source": "apps/app_meetme.c:5130",
+  "responseKind": "simple",
+  "successMessage": "User unmuted",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "MeetmeMute"
+  ],
+  "note": "Handler only clears admin flags; conference thread later publishes MeetmeMute Status: off (async)."
+ },
+ "MessageSend": {
+  "source": "main/message.c:1333",
+  "responseKind": "simple",
+  "successMessage": "Message successfully sent",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "MixMonitor": {
+  "source": "apps/app_mixmonitor.c:1830",
+  "responseKind": "fields",
+  "successMessage": null,
+  "responseFields": [
+   {
+    "name": "MixMonitorID",
+    "optional": true,
+    "values": null,
+    "note": "Only when Options has i(var) and the var is non-empty"
+   }
+  ],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "MixMonitorStart"
+  ],
+  "note": "Hand-written Response: Success, no Message. MixMonitorStart via stasis (async)."
+ },
+ "MixMonitorMute": {
+  "source": "apps/app_mixmonitor.c:1722",
+  "responseKind": "simple",
+  "successMessage": null,
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "MixMonitorMute"
+  ],
+  "note": "Hand-written Response: Success with no Message. MixMonitorMute event via stasis (async)."
+ },
+ "ModuleCheck": {
+  "source": "main/manager.c:6908",
+  "responseKind": "fields",
+  "successMessage": null,
+  "responseFields": [
+   {
+    "name": "Version",
+    "optional": true,
+    "values": [
+     ""
+    ],
+    "note": "always empty; omitted if built with LOW_MEMORY"
+   }
+  ],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Hand-written response; no Message header."
+ },
+ "ModuleLoad": {
+  "source": "main/manager.c:6973",
+  "responseKind": "simple",
+  "successMessage": null,
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Message by LoadType: 'Module loaded.', 'Module unloaded.', 'Module unloaded and loaded.', 'Module reloaded.', 'All modules reloaded'."
+ },
+ "MuteAudio": {
+  "source": "res/res_mutestream.c:173",
+  "responseKind": "simple",
+  "successMessage": null,
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Hand-written Response: Success with no Message."
+ },
+ "Originate": {
+  "source": "main/manager.c:5279",
+  "responseKind": "simple",
+  "successMessage": "Originate successfully queued",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "OriginateResponse"
+  ],
+  "note": "OriginateResponse (with ActionID) only when Async=true, raised as a broadcast call-class event. Sync mode blocks until answer/fail."
+ },
+ "PJSIPHangup": {
+  "source": "channels/pjsip/dialplan_functions.c:1366",
+  "responseKind": "special",
+  "successMessage": "Channel Hungup",
+  "responseFields": [],
+  "listItemEvents": [
+   "ChannelHungup"
+  ],
+  "completeEvent": "ChannelsHungupListComplete",
+  "otherEvents": [],
+  "note": "ast_manager_hangup_helper: plain Channel gets ack 'Channel Hungup'; /regex/ gets listack 'Channels hung up will follow' + list."
+ },
+ "PJSIPNotify": {
+  "source": "res/res_pjsip_notify.c:1264",
+  "responseKind": "simple",
+  "successMessage": "NOTIFY sent",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "PJSIPQualify": {
+  "source": "res/res_pjsip/pjsip_options.c:2671",
+  "responseKind": "simple",
+  "successMessage": "Endpoint found, will qualify",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Qualify runs synchronously per AOR; ContactStatus events only follow if a contact status changes."
+ },
+ "PJSIPRegister": {
+  "source": "res/res_pjsip_outbound_registration.c:2536",
+  "responseKind": "simple",
+  "successMessage": null,
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "Registry"
+  ],
+  "note": "Message: 'Reregistrations queued.' (*all), 'Reregistration sent', or 'Failed to queue unregistration' (still Success)."
+ },
+ "PJSIPSetMaintenance": {
+  "source": "res/res_pjsip_maintenance.c:562",
+  "responseKind": "simple",
+  "successMessage": null,
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "PJSIPMaintenanceStatus"
+  ],
+  "note": "Message: 'Maintenance mode enabled/disabled' [+ ' for all endpoints']. Broadcast event sent before ack, only if state changed."
+ },
+ "PJSIPShowAors": {
+  "source": "res/res_pjsip/location.c:1269",
+  "responseKind": "list",
+  "successMessage": "A listing of AORs follows, presented as AorList events",
+  "responseFields": [],
+  "listItemEvents": [
+   "AorList"
+  ],
+  "completeEvent": "AorListComplete",
+  "otherEvents": [],
+  "note": "No AORs: Response: Error 'No AORs found'."
+ },
+ "PJSIPShowAuths": {
+  "source": "res/res_pjsip/config_auth.c:596",
+  "responseKind": "list",
+  "successMessage": "A listing of Auths follows, presented as AuthList events",
+  "responseFields": [],
+  "listItemEvents": [
+   "AuthList"
+  ],
+  "completeEvent": "AuthListComplete",
+  "otherEvents": [],
+  "note": "No auths: Response: Error 'No Auths found'."
+ },
+ "PJSIPShowContacts": {
+  "source": "res/res_pjsip/pjsip_options.c:2456",
+  "responseKind": "list",
+  "successMessage": "A listing of Contacts follows, presented as ContactList events",
+  "responseFields": [],
+  "listItemEvents": [
+   "ContactList"
+  ],
+  "completeEvent": "ContactListComplete",
+  "otherEvents": [],
+  "note": "No contacts: Response: Error 'No Contacts found'."
+ },
+ "PJSIPShowEndpoint": {
+  "source": "res/res_pjsip/pjsip_configuration.c:1940",
+  "responseKind": "list",
+  "successMessage": "Following are Events for each object associated with the Endpoint",
+  "responseFields": [],
+  "listItemEvents": [
+   "EndpointDetail",
+   "AuthDetail",
+   "AorDetail",
+   "ContactStatusDetail",
+   "TransportDetail",
+   "IdentifyDetail"
+  ],
+  "completeEvent": "EndpointDetailComplete",
+  "otherEvents": [],
+  "note": "EndpointDetail first, then registered endpoint formatters. IdentifyDetail needs res_pjsip_endpoint_identifier_ip."
+ },
+ "PJSIPShowEndpoints": {
+  "source": "res/res_pjsip/pjsip_configuration.c:2033",
+  "responseKind": "list",
+  "successMessage": "A listing of Endpoints follows, presented as EndpointList events",
+  "responseFields": [],
+  "listItemEvents": [
+   "EndpointList"
+  ],
+  "completeEvent": "EndpointListComplete",
+  "otherEvents": [],
+  "note": "No endpoints: Response: Error 'No endpoints found'. ListItems = endpoint count."
+ },
+ "PJSIPShowMaintenance": {
+  "source": "res/res_pjsip_maintenance.c:672",
+  "responseKind": "list",
+  "successMessage": "Maintenance status events follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "PJSIPMaintenanceStatus"
+  ],
+  "completeEvent": "PJSIPMaintenanceStatusComplete",
+  "otherEvents": [],
+  "note": ""
+ },
+ "PJSIPShowRegistrationInboundContactStatuses": {
+  "source": "res/res_pjsip_registrar.c:1360",
+  "responseKind": "list",
+  "successMessage": "Following are ContactStatusEvents for each Inbound registration",
+  "responseFields": [],
+  "listItemEvents": [
+   "ContactStatusDetail"
+  ],
+  "completeEvent": "ContactStatusDetailComplete",
+  "otherEvents": [],
+  "note": "Items via ast_sip_format_contact_ami (pjsip_options.c)."
+ },
+ "PJSIPShowRegistrationsInbound": {
+  "source": "res/res_pjsip_registrar.c:1345",
+  "responseKind": "list",
+  "successMessage": "Following are Events for each Inbound registration",
+  "responseFields": [],
+  "listItemEvents": [
+   "InboundRegistrationDetail"
+  ],
+  "completeEvent": "InboundRegistrationDetailComplete",
+  "otherEvents": [],
+  "note": "One InboundRegistrationDetail per AOR of each endpoint (AOR shared by endpoints repeats)."
+ },
+ "PJSIPShowRegistrationsOutbound": {
+  "source": "res/res_pjsip_outbound_registration.c:2624",
+  "responseKind": "list",
+  "successMessage": "Following are Events for each Outbound registration",
+  "responseFields": [],
+  "listItemEvents": [
+   "OutboundRegistrationDetail",
+   "AuthDetail"
+  ],
+  "completeEvent": "OutboundRegistrationDetailComplete",
+  "otherEvents": [],
+  "note": "AuthDetail per outbound auth follows each registration. Complete has extra Registered/NotRegistered headers."
+ },
+ "PJSIPShowResourceLists": {
+  "source": "res/res_pjsip_pubsub.c:4574",
+  "responseKind": "list",
+  "successMessage": "A listing of resource lists follows, presented as ResourceListDetail events",
+  "responseFields": [],
+  "listItemEvents": [
+   "ResourceListDetail"
+  ],
+  "completeEvent": "ResourceListDetailComplete",
+  "otherEvents": [],
+  "note": "No lists: Response: Error 'No resource lists found'."
+ },
+ "PJSIPShowSubscriptionsInbound": {
+  "source": "res/res_pjsip_pubsub.c:4524",
+  "responseKind": "list",
+  "successMessage": "Following are Events for each inbound Subscription",
+  "responseFields": [],
+  "listItemEvents": [
+   "InboundSubscriptionDetail"
+  ],
+  "completeEvent": "InboundSubscriptionDetailComplete",
+  "otherEvents": [],
+  "note": ""
+ },
+ "PJSIPShowSubscriptionsOutbound": {
+  "source": "res/res_pjsip_pubsub.c:4538",
+  "responseKind": "list",
+  "successMessage": "Following are Events for each outbound Subscription",
+  "responseFields": [],
+  "listItemEvents": [
+   "OutboundSubscriptionDetail"
+  ],
+  "completeEvent": "OutboundSubscriptionDetailComplete",
+  "otherEvents": [],
+  "note": ""
+ },
+ "PJSIPUnregister": {
+  "source": "res/res_pjsip_outbound_registration.c:2504",
+  "responseKind": "simple",
+  "successMessage": null,
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "Registry"
+  ],
+  "note": "Message: 'Unregistrations queued.' (*all), 'Unregistration sent', or 'Failed to queue unregistration' (still Success)."
+ },
+ "PRIDebugFileSet": {
+  "source": "channels/chan_dahdi.c:14694",
+  "responseKind": "simple",
+  "successMessage": "PRI debug output will now be sent to requested file.",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Only with HAVE_PRI. Missing File: error sent without return, so a second error follows."
+ },
+ "PRIDebugFileUnset": {
+  "source": "channels/chan_dahdi.c:14725",
+  "responseKind": "simple",
+  "successMessage": "PRI Debug output to file disabled",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Only with HAVE_PRI."
+ },
+ "PRIDebugSet": {
+  "source": "channels/chan_dahdi.c:14821",
+  "responseKind": "simple",
+  "successMessage": "Debug level set for requested span",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Only with HAVE_PRI. Invalid span error is hand-written Response: Error."
+ },
+ "PRIShowSpans": {
+  "source": "channels/chan_dahdi.c:17355",
+  "responseKind": "list",
+  "successMessage": "Span status will follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "PRIShowSpans"
+  ],
+  "completeEvent": "PRIShowSpansComplete",
+  "otherEvents": [],
+  "note": "Only with HAVE_PRI. Items built by sig_pri_ami_show_spans (sig_pri.c). Complete event has extra Items header."
+ },
+ "Park": {
+  "source": "res/parking/parking_manager.c:548",
+  "responseKind": "simple",
+  "successMessage": "Park successful\n",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "ParkedCall"
+  ],
+  "note": "Message text ends with a stray \\n. ParkedCall published via stasis (async)."
+ },
+ "ParkedCalls": {
+  "source": "res/parking/parking_manager.c:401",
+  "responseKind": "list",
+  "successMessage": "Parked calls will follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "ParkedCall"
+  ],
+  "completeEvent": "ParkedCallsComplete",
+  "otherEvents": [],
+  "note": "Complete has extra Total header. Unknown ParkingLot: Response: Error."
+ },
+ "Parkinglots": {
+  "source": "res/parking/parking_manager.c:449",
+  "responseKind": "list",
+  "successMessage": "Parking lots will follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "Parkinglot"
+  ],
+  "completeEvent": "ParkinglotsComplete",
+  "otherEvents": [],
+  "note": ""
+ },
+ "Ping": {
+  "source": "main/manager.c:2380",
+  "responseKind": "fields",
+  "successMessage": null,
+  "responseFields": [
+   {
+    "name": "Ping",
+    "optional": false,
+    "values": [
+     "Pong"
+    ],
+    "note": ""
+   },
+   {
+    "name": "Timestamp",
+    "optional": false,
+    "values": null,
+    "note": "%ld.%06lu epoch seconds.microseconds"
+   }
+  ],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Hand-written response; no Message header."
+ },
+ "PlayDTMF": {
+  "source": "apps/app_senddtmf.c:206",
+  "responseKind": "simple",
+  "successMessage": "DTMF successfully queued",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "PlayMF": {
+  "source": "apps/app_mf.c:482",
+  "responseKind": "simple",
+  "successMessage": "MF successfully queued",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "PresenceState": {
+  "source": "main/manager.c:5542",
+  "responseKind": "fields",
+  "successMessage": "Presence State",
+  "responseFields": [
+   {
+    "name": "State",
+    "optional": false,
+    "values": [
+     "not_set",
+     "unavailable",
+     "available",
+     "away",
+     "xa",
+     "chat",
+     "dnd"
+    ],
+    "note": ""
+   },
+   {
+    "name": "Subtype",
+    "optional": true,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "PresenceMessage",
+    "optional": true,
+    "values": null,
+    "note": ""
+   }
+  ],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "When a presence message exists, a 2nd deprecated 'Message: <text>' header is also sent before PresenceMessage."
+ },
+ "PresenceStateList": {
+  "source": "res/res_manager_presencestate.c:79",
+  "responseKind": "list",
+  "successMessage": "Presence State Changes will follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "PresenceStateChange"
+  ],
+  "completeEvent": "PresenceStateListComplete",
+  "otherEvents": [],
+  "note": "Items are cached stasis messages rendered via stasis_message_to_ami."
+ },
+ "QueueAdd": {
+  "source": "apps/app_queue.c:11011",
+  "responseKind": "simple",
+  "successMessage": "Added interface to queue",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "QueueMemberAdded"
+  ],
+  "note": "QueueMemberAdded is published via stasis (async)."
+ },
+ "QueueChangePriorityCaller": {
+  "source": "apps/app_queue.c:11307",
+  "responseKind": "simple",
+  "successMessage": "Priority change for caller on queue",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "QueueLog": {
+  "source": "apps/app_queue.c:11148",
+  "responseKind": "simple",
+  "successMessage": "Event added successfully",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "QueueMemberRingInUse": {
+  "source": "apps/app_queue.c:11247",
+  "responseKind": "simple",
+  "successMessage": "Interface ringinuse set successfully",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "QueueMemberRinginuse"
+  ],
+  "note": "Async event name is spelled QueueMemberRinginuse."
+ },
+ "QueuePause": {
+  "source": "apps/app_queue.c:11123",
+  "responseKind": "simple",
+  "successMessage": null,
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "QueueMemberPause"
+  ],
+  "note": "Message: 'Interface paused successfully' or 'Interface unpaused successfully' per Paused. QueueMemberPause per affected member."
+ },
+ "QueuePenalty": {
+  "source": "apps/app_queue.c:11281",
+  "responseKind": "simple",
+  "successMessage": "Interface penalty set successfully",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "QueueMemberPenalty"
+  ],
+  "note": "QueueMemberPenalty is published via stasis (async)."
+ },
+ "QueueReload": {
+  "source": "apps/app_queue.c:11169",
+  "responseKind": "simple",
+  "successMessage": "Queue reloaded successfully",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "QueueRemove": {
+  "source": "apps/app_queue.c:11076",
+  "responseKind": "simple",
+  "successMessage": "Removed interface from queue",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "QueueMemberRemoved"
+  ],
+  "note": "QueueMemberRemoved is published via stasis (async)."
+ },
+ "QueueReset": {
+  "source": "apps/app_queue.c:11201",
+  "responseKind": "simple",
+  "successMessage": "Queue stats reset successfully",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "QueueRule": {
+  "source": "apps/app_queue.c:10770",
+  "responseKind": "special",
+  "successMessage": null,
+  "responseFields": [
+   {
+    "name": "RuleList",
+    "optional": true,
+    "values": null,
+    "note": "Repeated once per matching rule list"
+   },
+   {
+    "name": "Rule",
+    "optional": true,
+    "values": null,
+    "note": "Repeated; follows its RuleList; format time,max,min"
+   }
+  ],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Hand-written Response: Success, no Message. RuleList/Rule headers repeat per list. Ends with two blank lines."
+ },
+ "QueueStatus": {
+  "source": "apps/app_queue.c:10888",
+  "responseKind": "list",
+  "successMessage": "Queue status will follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "QueueParams",
+   "QueueMember",
+   "QueueEntry"
+  ],
+  "completeEvent": "QueueStatusComplete",
+  "otherEvents": [],
+  "note": ""
+ },
+ "QueueSummary": {
+  "source": "apps/app_queue.c:10806",
+  "responseKind": "list",
+  "successMessage": "Queue summary will follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "QueueSummary"
+  ],
+  "completeEvent": "QueueSummaryComplete",
+  "otherEvents": [],
+  "note": ""
+ },
+ "QueueWithdrawCaller": {
+  "source": "apps/app_queue.c:11354",
+  "responseKind": "simple",
+  "successMessage": "Withdraw requested successfully",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "Redirect": {
+  "source": "main/manager.c:4005",
+  "responseKind": "simple",
+  "successMessage": null,
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Message 'Redirect successful' (single) or 'Dual Redirect successful' (with ExtraChannel)."
+ },
+ "Reload": {
+  "source": "main/manager.c:6615",
+  "responseKind": "simple",
+  "successMessage": "Module Reloaded",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "SendFlash": {
+  "source": "apps/app_senddtmf.c:248",
+  "responseKind": "simple",
+  "successMessage": "Flash successfully queued",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "SendText": {
+  "source": "main/manager.c:3956",
+  "responseKind": "simple",
+  "successMessage": "Success",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "Setvar": {
+  "source": "main/manager.c:3600",
+  "responseKind": "simple",
+  "successMessage": "Variable Set",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "ShowDialPlan": {
+  "source": "main/pbx.c:4365",
+  "responseKind": "list",
+  "successMessage": "DialPlan list will follow",
+  "responseFields": [
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "start"
+    ],
+    "note": ""
+   }
+  ],
+  "listItemEvents": [
+   "ListDialplan"
+  ],
+  "completeEvent": "ShowDialPlanComplete",
+  "otherEvents": [],
+  "note": "Complete adds ListExtensions/ListPriorities/ListContexts. Error may follow listack if Context/Extension not found after items were sent."
+ },
+ "SorceryMemoryCacheExpire": {
+  "source": "res/res_sorcery_memory_cache.c:2261",
+  "responseKind": "simple",
+  "successMessage": "All objects were expired from the cache\n",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Message text ends with a stray \\n."
+ },
+ "SorceryMemoryCacheExpireObject": {
+  "source": "res/res_sorcery_memory_cache.c:2215",
+  "responseKind": "simple",
+  "successMessage": "The provided object was expired from the cache\n",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Message text ends with a stray \\n."
+ },
+ "SorceryMemoryCachePopulate": {
+  "source": "res/res_sorcery_memory_cache.c:2376",
+  "responseKind": "simple",
+  "successMessage": "Cache has been expired and populated\n",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Message text ends with a stray \\n."
+ },
+ "SorceryMemoryCacheStale": {
+  "source": "res/res_sorcery_memory_cache.c:2345",
+  "responseKind": "simple",
+  "successMessage": "All objects were marked as stale in the cache\n",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Message text ends with a stray \\n."
+ },
+ "SorceryMemoryCacheStaleObject": {
+  "source": "res/res_sorcery_memory_cache.c:2292",
+  "responseKind": "simple",
+  "successMessage": "The provided object was marked as stale in the cache\n",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Message text ends with a stray \\n."
+ },
+ "Status": {
+  "source": "main/manager.c:3800",
+  "responseKind": "list",
+  "successMessage": "Channel status will follow",
+  "responseFields": [
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "start"
+    ],
+    "note": ""
+   }
+  ],
+  "listItemEvents": [
+   "Status"
+  ],
+  "completeEvent": "StatusComplete",
+  "otherEvents": [],
+  "note": "StatusComplete also carries Items: <count> (duplicate of ListItems)."
+ },
+ "StopMixMonitor": {
+  "source": "apps/app_mixmonitor.c:1895",
+  "responseKind": "simple",
+  "successMessage": null,
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "MixMonitorStop"
+  ],
+  "note": "Hand-written Response: Success with no Message. MixMonitorStop via stasis (async)."
+ },
+ "UpdateConfig": {
+  "source": "main/manager.c:2957",
+  "responseKind": "simple",
+  "successMessage": null,
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Ack sent with no Message header. Reload happens after the ack."
+ },
+ "UserEvent": {
+  "source": "main/manager.c:6508",
+  "responseKind": "simple",
+  "successMessage": "Event Sent",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [
+   "UserEvent"
+  ],
+  "note": "UserEvent is broadcast (EVENT_FLAG_USER) after the ack, carrying the request headers except Action/UserEvent."
+ },
+ "VoicemailBoxSummary": {
+  "source": "apps/app_voicemail.c:14529",
+  "responseKind": "list",
+  "successMessage": "Voicemail box detail will follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "VoicemailBoxDetail"
+  ],
+  "completeEvent": "VoicemailBoxDetailComplete",
+  "otherEvents": [],
+  "note": "Unknown user: plain ack 'There is no voicemail user matching the given user.' with no list."
+ },
+ "VoicemailForward": {
+  "source": "apps/app_voicemail.c:14638",
+  "responseKind": "simple",
+  "successMessage": "Message forward successful\n",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Failure is also Response: Success, Message 'Message forward failed\\n'. Message values end with a stray \\n."
+ },
+ "VoicemailMove": {
+  "source": "apps/app_voicemail.c:14567",
+  "responseKind": "simple",
+  "successMessage": "Message move successful\n",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Failure is also Response: Success, Message 'Message move failed\\n'. Message values end with a stray \\n."
+ },
+ "VoicemailRefresh": {
+  "source": "apps/app_voicemail.c:14435",
+  "responseKind": "simple",
+  "successMessage": "Refresh sent",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": ""
+ },
+ "VoicemailRemove": {
+  "source": "apps/app_voicemail.c:14605",
+  "responseKind": "simple",
+  "successMessage": "Message remove successful\n",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": null,
+  "otherEvents": [],
+  "note": "Failure is also Response: Success, Message 'Message remove failed\\n'. Message values end with a stray \\n."
+ },
+ "VoicemailUserStatus": {
+  "source": "apps/app_voicemail.c:14442",
+  "responseKind": "list",
+  "successMessage": "Voicemail user detail will follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "VoicemailUserDetail"
+  ],
+  "completeEvent": "VoicemailUserDetailComplete",
+  "otherEvents": [],
+  "note": "Unknown user: plain ack 'There is no voicemail user of the given info.' with no list."
+ },
+ "VoicemailUsersList": {
+  "source": "apps/app_voicemail.c:14488",
+  "responseKind": "list",
+  "successMessage": "Voicemail user list will follow",
+  "responseFields": [],
+  "listItemEvents": [
+   "VoicemailUserEntry"
+  ],
+  "completeEvent": "VoicemailUserEntryComplete",
+  "otherEvents": [],
+  "note": "No users: plain ack 'There are no voicemail users currently defined.' with no list."
+ },
+ "WaitEvent": {
+  "source": "main/manager.c:3310",
+  "responseKind": "special",
+  "successMessage": "Waiting for Event completed.",
+  "responseFields": [],
+  "listItemEvents": [],
+  "completeEvent": "WaitEventComplete",
+  "otherEvents": [],
+  "note": "Blocks until an event/timeout, then Success, any queued events of any type, then WaitEventComplete (no EventList/ListItems)."
+ }
+}

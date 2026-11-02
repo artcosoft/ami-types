@@ -1,6 +1,6 @@
 {
   "name": "@artcosoft/ami-types",
-  "version": "0.3.11",
+  "version": "0.4.0",
   "description": "",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -13,6 +13,9 @@
   },
   "scripts": {
     "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "generate": "python3 -I scripts/asterisk/generate.py && prettier --write src/definitions --log-level warn",
+    "extract-docs": "scripts/asterisk/extract-docs.sh",
     "clean": "rm -rf ./lib || true",
     "build_and_publish": "npm run clean && npm run build && npm publish --access=public",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,0 +1,3006 @@
+{
+ "_doc": "AMI events that Asterisk 22.11.0 emits but does not describe in its XML docs. Fields are read from the C source (see sources). role notAnEvent entries are kept for reference and not generated.",
+ "BridgeListComplete": {
+  "sources": [
+   "main/manager_bridges.c:554"
+  ],
+  "module": "builtin",
+  "emittedBy": [
+   "BridgeList"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   }
+  ]
+ },
+ "BridgeListItem": {
+  "sources": [
+   "main/manager_bridges.c:512"
+  ],
+  "module": "builtin",
+  "emittedBy": [
+   "BridgeList"
+  ],
+  "role": "listItem",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [
+   ""
+  ],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   }
+  ]
+ },
+ "BridgeTechnologyListComplete": {
+  "sources": [
+   "main/bridge.c:5708"
+  ],
+  "module": "builtin",
+  "emittedBy": [
+   "BridgeTechnologyList"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   }
+  ]
+ },
+ "BridgeTechnologyListItem": {
+  "sources": [
+   "main/bridge.c:5695"
+  ],
+  "module": "builtin",
+  "emittedBy": [
+   "BridgeTechnologyList"
+  ],
+  "role": "listItem",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "BridgeTechnology",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "BridgeType",
+    "optional": false,
+    "values": [
+     "Holding",
+     "Early",
+     "Native",
+     "1to1Mix",
+     "MultiMix",
+     "<Unknown>"
+    ],
+    "note": "tech_capability2str()"
+   },
+   {
+    "name": "BridgePriority",
+    "optional": false,
+    "values": null,
+    "note": "%u"
+   },
+   {
+    "name": "BridgeSuspended",
+    "optional": false,
+    "values": [
+     "Yes",
+     "No"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   }
+  ]
+ },
+ "CCAvailable": {
+  "sources": [
+   "main/stasis_system.c:199"
+  ],
+  "module": "builtin",
+  "emittedBy": [],
+  "role": "unsolicited",
+  "actionId": false,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "CoreID",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Callee",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Service",
+    "optional": false,
+    "values": null,
+    "note": ""
+   }
+  ],
+  "note": "ast_manager_event_blob_create(EVENT_FLAG_CC, ...) from CC stasis message"
+ },
+ "CCCallerRecalling": {
+  "sources": [
+   "main/stasis_system.c:296"
+  ],
+  "module": "builtin",
+  "emittedBy": [],
+  "role": "unsolicited",
+  "actionId": false,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "CoreID",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Caller",
+    "optional": false,
+    "values": null,
+    "note": ""
+   }
+  ],
+  "note": "ast_manager_event_blob_create(EVENT_FLAG_CC, ...) from CC stasis message"
+ },
+ "CCCallerStartMonitoring": {
+  "sources": [
+   "main/stasis_system.c:281"
+  ],
+  "module": "builtin",
+  "emittedBy": [],
+  "role": "unsolicited",
+  "actionId": false,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "CoreID",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Caller",
+    "optional": false,
+    "values": null,
+    "note": ""
+   }
+  ],
+  "note": "ast_manager_event_blob_create(EVENT_FLAG_CC, ...) from CC stasis message"
+ },
+ "CCCallerStopMonitoring": {
+  "sources": [
+   "main/stasis_system.c:266"
+  ],
+  "module": "builtin",
+  "emittedBy": [],
+  "role": "unsolicited",
+  "actionId": false,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "CoreID",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Caller",
+    "optional": false,
+    "values": null,
+    "note": ""
+   }
+  ],
+  "note": "ast_manager_event_blob_create(EVENT_FLAG_CC, ...) from CC stasis message"
+ },
+ "CCFailure": {
+  "sources": [
+   "main/stasis_system.c:328"
+  ],
+  "module": "builtin",
+  "emittedBy": [],
+  "role": "unsolicited",
+  "actionId": false,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "CoreID",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Caller",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Reason",
+    "optional": false,
+    "values": null,
+    "note": ""
+   }
+  ],
+  "note": "ast_manager_event_blob_create(EVENT_FLAG_CC, ...) from CC stasis message"
+ },
+ "CCMonitorFailed": {
+  "sources": [
+   "main/stasis_system.c:344"
+  ],
+  "module": "builtin",
+  "emittedBy": [],
+  "role": "unsolicited",
+  "actionId": false,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "CoreID",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Callee",
+    "optional": false,
+    "values": null,
+    "note": ""
+   }
+  ],
+  "note": "ast_manager_event_blob_create(EVENT_FLAG_CC, ...) from CC stasis message"
+ },
+ "CCOfferTimerStart": {
+  "sources": [
+   "main/stasis_system.c:217"
+  ],
+  "module": "builtin",
+  "emittedBy": [],
+  "role": "unsolicited",
+  "actionId": false,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "CoreID",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Caller",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Expires",
+    "optional": false,
+    "values": null,
+    "note": "%u"
+   }
+  ],
+  "note": "ast_manager_event_blob_create(EVENT_FLAG_CC, ...) from CC stasis message"
+ },
+ "CCRecallComplete": {
+  "sources": [
+   "main/stasis_system.c:311"
+  ],
+  "module": "builtin",
+  "emittedBy": [],
+  "role": "unsolicited",
+  "actionId": false,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "CoreID",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Caller",
+    "optional": false,
+    "values": null,
+    "note": ""
+   }
+  ],
+  "note": "ast_manager_event_blob_create(EVENT_FLAG_CC, ...) from CC stasis message"
+ },
+ "CCRequestAcknowledged": {
+  "sources": [
+   "main/stasis_system.c:251"
+  ],
+  "module": "builtin",
+  "emittedBy": [],
+  "role": "unsolicited",
+  "actionId": false,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "CoreID",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Caller",
+    "optional": false,
+    "values": null,
+    "note": ""
+   }
+  ],
+  "note": "ast_manager_event_blob_create(EVENT_FLAG_CC, ...) from CC stasis message"
+ },
+ "CCRequested": {
+  "sources": [
+   "main/stasis_system.c:235"
+  ],
+  "module": "builtin",
+  "emittedBy": [],
+  "role": "unsolicited",
+  "actionId": false,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "CoreID",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Caller",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Callee",
+    "optional": false,
+    "values": null,
+    "note": ""
+   }
+  ],
+  "note": "ast_manager_event_blob_create(EVENT_FLAG_CC, ...) from CC stasis message"
+ },
+ "ChannelHungup": {
+  "sources": [
+   "main/manager.c:3578"
+  ],
+  "module": "builtin",
+  "emittedBy": [
+   "Hangup",
+   "PJSIPHangup"
+  ],
+  "role": "listItem",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "Channel",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   }
+  ],
+  "note": "Only when Channel is a /regex/; list ends with ChannelsHungupListComplete. PJSIPHangup shares ast_manager_hangup_helper"
+ },
+ "ChannelsHungupListComplete": {
+  "sources": [
+   "main/manager.c:3589",
+   "main/manager.c:1994"
+  ],
+  "module": "builtin",
+  "emittedBy": [
+   "Hangup",
+   "PJSIPHangup"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d, number of channels hung up"
+   }
+  ]
+ },
+ "CloseSession": {
+  "sources": [
+   "main/manager.c:9561"
+  ],
+  "module": "builtin",
+  "emittedBy": [],
+  "role": "notAnEvent",
+  "actionId": false,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "CloseSession",
+    "optional": false,
+    "values": [
+     "true"
+    ],
+    "note": ""
+   }
+  ],
+  "note": "Internal pseudo-event queued at manager shutdown (category EVENT_FLAG_SHUTDOWN=-1) to close sessions; source comment: 'not actually transmitted'. Session loop drops it; never reaches clients in practice."
+ },
+ "ConfbridgeListComplete": {
+  "sources": [
+   "apps/app_confbridge.c:4137"
+  ],
+  "module": "app_confbridge",
+  "emittedBy": [
+   "ConfbridgeList"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   }
+  ]
+ },
+ "ConfbridgeListRoomsComplete": {
+  "sources": [
+   "apps/app_confbridge.c:4190"
+  ],
+  "module": "app_confbridge",
+  "emittedBy": [
+   "ConfbridgeListRooms"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   }
+  ]
+ },
+ "ContactStatusDetailComplete": {
+  "sources": [
+   "res/res_pjsip_registrar.c:1390"
+  ],
+  "module": "res_pjsip_registrar",
+  "emittedBy": [
+   "PJSIPShowRegistrationInboundContactStatuses"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   }
+  ]
+ },
+ "CoreShowChannelMap": {
+  "sources": [
+   "main/manager.c:6876"
+  ],
+  "module": "builtin",
+  "emittedBy": [
+   "CoreShowChannelMap"
+  ],
+  "role": "listItem",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "Channel",
+    "optional": false,
+    "values": null,
+    "note": "requested channel name"
+   },
+   {
+    "name": "ConnectedChannel",
+    "optional": false,
+    "values": null,
+    "note": ""
+   }
+  ],
+  "note": "List terminator is CoreShowChannelMapComplete"
+ },
+ "DAHDIShowChannels": {
+  "sources": [
+   "channels/chan_dahdi.c:17234",
+   "channels/chan_dahdi.c:17259"
+  ],
+  "module": "chan_dahdi",
+  "emittedBy": [
+   "DAHDIShowChannels"
+  ],
+  "role": "listItem",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "DAHDIChannel",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Channel",
+    "optional": true,
+    "values": null,
+    "note": "only when channel has an owner"
+   },
+   {
+    "name": "Uniqueid",
+    "optional": true,
+    "values": null,
+    "note": "only when channel has an owner"
+   },
+   {
+    "name": "AccountCode",
+    "optional": true,
+    "values": null,
+    "note": "only when channel has an owner"
+   },
+   {
+    "name": "Signalling",
+    "optional": false,
+    "values": null,
+    "note": "dahdi_sig2str(); default 'Unknown signalling %d'"
+   },
+   {
+    "name": "SignallingCode",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Context",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "DND",
+    "optional": false,
+    "values": [
+     "Enabled",
+     "Disabled"
+    ],
+    "note": ""
+   },
+   {
+    "name": "Alarm",
+    "optional": false,
+    "values": [
+     "Red Alarm",
+     "Yellow Alarm",
+     "Blue Alarm",
+     "Recovering",
+     "Loopback",
+     "Not Open",
+     "None",
+     "Unknown Alarm",
+     "No Alarm"
+    ],
+    "note": "alarm2str() table + fallbacks"
+   },
+   {
+    "name": "Description",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   }
+  ]
+ },
+ "DAHDIShowChannelsComplete": {
+  "sources": [
+   "channels/chan_dahdi.c:17280"
+  ],
+  "module": "chan_dahdi",
+  "emittedBy": [
+   "DAHDIShowChannels"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Items",
+    "optional": false,
+    "values": null,
+    "note": "%d, same as ListItems"
+   }
+  ]
+ },
+ "DAHDIShowStatus": {
+  "sources": [
+   "channels/chan_dahdi.c:17318"
+  ],
+  "module": "chan_dahdi",
+  "emittedBy": [
+   "DAHDIShowStatus"
+  ],
+  "role": "listItem",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "Span",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Description",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Alarms",
+    "optional": false,
+    "values": null,
+    "note": "OK, UNCONFIGURED or '/'-joined BLU/YEL/RED/LB/REC/NOP/UUU"
+   },
+   {
+    "name": "IRQ",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "bpviol",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "CRC",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Framing",
+    "optional": false,
+    "values": [
+     "D4",
+     "ESF",
+     "CCS",
+     "CAS"
+    ],
+    "note": ""
+   },
+   {
+    "name": "Coding",
+    "optional": false,
+    "values": [
+     "B8ZS",
+     "HDB3",
+     "AMI",
+     "Unk"
+    ],
+    "note": ""
+   },
+   {
+    "name": "Options",
+    "optional": false,
+    "values": [
+     "CRC4/YEL",
+     "CRC4",
+     "YEL",
+     ""
+    ],
+    "note": ""
+   },
+   {
+    "name": "LBO",
+    "optional": false,
+    "values": [
+     "0 db (CSU)/0-133 feet (DSX-1)",
+     "133-266 feet (DSX-1)",
+     "266-399 feet (DSX-1)",
+     "399-533 feet (DSX-1)",
+     "533-655 feet (DSX-1)",
+     "-7.5db (CSU)",
+     "-15db (CSU)",
+     "-22.5db (CSU)"
+    ],
+    "note": "lbostr[] table"
+   },
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   }
+  ]
+ },
+ "DAHDIShowStatusComplete": {
+  "sources": [
+   "channels/chan_dahdi.c:17348"
+  ],
+  "module": "chan_dahdi",
+  "emittedBy": [
+   "DAHDIShowStatus"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Items",
+    "optional": false,
+    "values": null,
+    "note": "%d, same as ListItems"
+   }
+  ]
+ },
+ "DBGetComplete": {
+  "sources": [
+   "main/db.c:1068"
+  ],
+  "module": "builtin",
+  "emittedBy": [
+   "DBGet"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": [
+     "1"
+    ],
+    "note": "always 1"
+   }
+  ]
+ },
+ "DBGetResponse": {
+  "sources": [
+   "main/db.c:1060"
+  ],
+  "module": "builtin",
+  "emittedBy": [
+   "DBGet"
+  ],
+  "role": "listItem",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "Family",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Key",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Val",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   }
+  ]
+ },
+ "DBGetTreeComplete": {
+  "sources": [
+   "main/db.c:1134"
+  ],
+  "module": "builtin",
+  "emittedBy": [
+   "DBGetTree"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   }
+  ]
+ },
+ "DBGetTreeResponse": {
+  "sources": [
+   "main/db.c:1121"
+  ],
+  "module": "builtin",
+  "emittedBy": [
+   "DBGetTree"
+  ],
+  "role": "listItem",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "Key",
+    "optional": false,
+    "values": null,
+    "note": "full astdb key path"
+   },
+   {
+    "name": "Val",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   }
+  ]
+ },
+ "InboundRegistrationDetailComplete": {
+  "sources": [
+   "res/res_pjsip_registrar.c:1355"
+  ],
+  "module": "res_pjsip_registrar",
+  "emittedBy": [
+   "PJSIPShowRegistrationsInbound"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   }
+  ]
+ },
+ "InboundSubscriptionDetailComplete": {
+  "sources": [
+   "res/res_pjsip_pubsub.c:4533"
+  ],
+  "module": "res_pjsip_pubsub",
+  "emittedBy": [
+   "PJSIPShowSubscriptionsInbound"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   }
+  ]
+ },
+ "JabberStatus": {
+  "sources": [
+   "res/res_xmpp.c:3487",
+   "res/res_xmpp.c:3500"
+  ],
+  "module": "res_xmpp",
+  "emittedBy": [],
+  "role": "unsolicited",
+  "actionId": false,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "Account",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "JID",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Resource",
+    "optional": true,
+    "values": null,
+    "note": "known-resource presence only"
+   },
+   {
+    "name": "Status",
+    "optional": false,
+    "values": null,
+    "note": "numeric iks show value (%d / %u)"
+   },
+   {
+    "name": "Priority",
+    "optional": true,
+    "values": null,
+    "note": "%d; known-resource presence only"
+   },
+   {
+    "name": "Description",
+    "optional": true,
+    "values": null,
+    "note": "known-resource presence only"
+   }
+  ],
+  "note": "manager_event(EVENT_FLAG_USER) on XMPP presence; name also used for the JabberStatus dialplan app"
+ },
+ "ListDialplan": {
+  "sources": [
+   "main/pbx.c:4275",
+   "main/pbx.c:4317",
+   "main/pbx.c:4333",
+   "main/pbx.c:4344"
+  ],
+  "module": "builtin",
+  "emittedBy": [
+   "ShowDialPlan"
+  ],
+  "role": "listItem",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "Context",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Extension",
+    "optional": true,
+    "values": null,
+    "note": "extension/priority entry"
+   },
+   {
+    "name": "ExtensionLabel",
+    "optional": true,
+    "values": null,
+    "note": "priority entry with label"
+   },
+   {
+    "name": "Priority",
+    "optional": true,
+    "values": null,
+    "note": "%d, or literal 'hint'"
+   },
+   {
+    "name": "Application",
+    "optional": true,
+    "values": null,
+    "note": "extension/priority entry"
+   },
+   {
+    "name": "AppData",
+    "optional": true,
+    "values": null,
+    "note": "priority entry, not on hints"
+   },
+   {
+    "name": "IncludeContext",
+    "optional": true,
+    "values": null,
+    "note": "include entry"
+   },
+   {
+    "name": "IgnorePattern",
+    "optional": true,
+    "values": null,
+    "note": "ignorepat entry"
+   },
+   {
+    "name": "Switch",
+    "optional": true,
+    "values": null,
+    "note": "switch entry, 'name/data'"
+   },
+   {
+    "name": "Registrar",
+    "optional": false,
+    "values": null,
+    "note": ""
+   }
+  ],
+  "note": "Four variants: priority, include, ignorepat, switch"
+ },
+ "MeetmeListComplete": {
+  "sources": [
+   "apps/app_meetme.c:5202"
+  ],
+  "module": "app_meetme",
+  "emittedBy": [
+   "MeetmeList"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   }
+  ]
+ },
+ "MeetmeListRoomsComplete": {
+  "sources": [
+   "apps/app_meetme.c:5265"
+  ],
+  "module": "app_meetme",
+  "emittedBy": [
+   "MeetmeListRooms"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   }
+  ]
+ },
+ "MobileStatus": {
+  "sources": [
+   "addons/chan_mobile.c:4099",
+   "addons/chan_mobile.c:4256",
+   "addons/chan_mobile.c:4302"
+  ],
+  "module": "chan_mobile",
+  "emittedBy": [],
+  "role": "unsolicited",
+  "actionId": false,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "Status",
+    "optional": false,
+    "values": [
+     "Disconnect",
+     "Connect"
+    ],
+    "note": ""
+   },
+   {
+    "name": "Device",
+    "optional": false,
+    "values": null,
+    "note": ""
+   }
+  ],
+  "note": "manager_event(EVENT_FLAG_SYSTEM); name also used for the MobileStatus dialplan app"
+ },
+ "OutboundRegistrationDetailComplete": {
+  "sources": [
+   "res/res_pjsip_outbound_registration.c:2643"
+  ],
+  "module": "res_pjsip_outbound_registration",
+  "emittedBy": [
+   "PJSIPShowRegistrationsOutbound"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Registered",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "NotRegistered",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   }
+  ]
+ },
+ "OutboundSubscriptionDetailComplete": {
+  "sources": [
+   "res/res_pjsip_pubsub.c:4547"
+  ],
+  "module": "res_pjsip_pubsub",
+  "emittedBy": [
+   "PJSIPShowSubscriptionsOutbound"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   }
+  ]
+ },
+ "PJSIPMaintenanceStatusComplete": {
+  "sources": [
+   "res/res_pjsip_maintenance.c:706"
+  ],
+  "module": "res_pjsip_maintenance",
+  "emittedBy": [
+   "PJSIPShowMaintenance"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   }
+  ]
+ },
+ "PRIShowSpans": {
+  "sources": [
+   "channels/sig_pri.c:7553",
+   "channels/chan_dahdi.c:17391"
+  ],
+  "module": "chan_dahdi",
+  "emittedBy": [
+   "PRIShowSpans"
+  ],
+  "role": "listItem",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "Span",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "DChannel",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Order",
+    "optional": false,
+    "values": [
+     "Primary",
+     "Secondary",
+     "Tertiary",
+     "Quaternary"
+    ],
+    "note": ""
+   },
+   {
+    "name": "Active",
+    "optional": false,
+    "values": [
+     "Yes",
+     "No"
+    ],
+    "note": ""
+   },
+   {
+    "name": "Alarm",
+    "optional": false,
+    "values": [
+     "Yes",
+     "No"
+    ],
+    "note": ""
+   },
+   {
+    "name": "Up",
+    "optional": false,
+    "values": [
+     "Yes",
+     "No"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": ""
+   }
+  ]
+ },
+ "PRIShowSpansComplete": {
+  "sources": [
+   "channels/chan_dahdi.c:17396"
+  ],
+  "module": "chan_dahdi",
+  "emittedBy": [
+   "PRIShowSpans"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Items",
+    "optional": false,
+    "values": null,
+    "note": "%d, same as ListItems"
+   }
+  ],
+  "note": "Only built with HAVE_PRI"
+ },
+ "ParkedCallsComplete": {
+  "sources": [
+   "res/parking/parking_manager.c:333",
+   "res/parking/parking_manager.c:396"
+  ],
+  "module": "res_parking",
+  "emittedBy": [
+   "ParkedCalls"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Total",
+    "optional": false,
+    "values": null,
+    "note": "%d, same as ListItems"
+   }
+  ],
+  "note": "Source file res/parking/parking_manager.c is linked into res_parking"
+ },
+ "Parkinglot": {
+  "sources": [
+   "res/parking/parking_manager.c:432"
+  ],
+  "module": "res_parking",
+  "emittedBy": [
+   "Parkinglots"
+  ],
+  "role": "listItem",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "Name",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "StartSpace",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "StopSpace",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Timeout",
+    "optional": false,
+    "values": null,
+    "note": "%u, seconds"
+   }
+  ],
+  "note": "Source file res/parking/parking_manager.c is linked into res_parking"
+ },
+ "ParkinglotsComplete": {
+  "sources": [
+   "res/parking/parking_manager.c:475"
+  ],
+  "module": "res_parking",
+  "emittedBy": [
+   "Parkinglots"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   }
+  ],
+  "note": "Source file res/parking/parking_manager.c is linked into res_parking"
+ },
+ "PeerEntry": {
+  "sources": [
+   "channels/chan_iax2.c:7030",
+   "channels/chan_iax2.c:7046"
+  ],
+  "module": "chan_iax2",
+  "emittedBy": [
+   "IAXpeers",
+   "IAXpeerlist"
+  ],
+  "role": "listItem",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "Channeltype",
+    "optional": false,
+    "values": [
+     "IAX",
+     "IAX2"
+    ],
+    "note": "IAX from IAXpeerlist, IAX2 from IAXpeers"
+   },
+   {
+    "name": "ObjectName",
+    "optional": false,
+    "values": null,
+    "note": "IAXpeers: 'name/username' when username set"
+   },
+   {
+    "name": "ObjectUsername",
+    "optional": true,
+    "values": null,
+    "note": "IAXpeerlist only, when username set"
+   },
+   {
+    "name": "ChanObjectType",
+    "optional": false,
+    "values": [
+     "peer"
+    ],
+    "note": ""
+   },
+   {
+    "name": "IPaddress",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Mask",
+    "optional": true,
+    "values": null,
+    "note": "IAXpeerlist only"
+   },
+   {
+    "name": "Port",
+    "optional": true,
+    "values": null,
+    "note": "IAXpeerlist only"
+   },
+   {
+    "name": "IPport",
+    "optional": true,
+    "values": null,
+    "note": "IAXpeers only"
+   },
+   {
+    "name": "Dynamic",
+    "optional": false,
+    "values": [
+     "yes",
+     "no"
+    ],
+    "note": ""
+   },
+   {
+    "name": "Trunk",
+    "optional": false,
+    "values": [
+     "yes",
+     "no"
+    ],
+    "note": ""
+   },
+   {
+    "name": "Encryption",
+    "optional": false,
+    "values": [
+     "no",
+     "No",
+     "(aes128)",
+     "(aes128,keyrotate)",
+     "(,keyrotate)"
+    ],
+    "note": "encmethods_to_str()"
+   },
+   {
+    "name": "Status",
+    "optional": false,
+    "values": null,
+    "note": "UNREACHABLE, UNKNOWN, Unmonitored, 'OK (%d ms)', 'LAGGED (%d ms)'"
+   },
+   {
+    "name": "Description",
+    "optional": true,
+    "values": null,
+    "note": "IAXpeers only"
+   }
+  ]
+ },
+ "PeerlistComplete": {
+  "sources": [
+   "channels/chan_iax2.c:7414",
+   "channels/chan_iax2.c:7452"
+  ],
+  "module": "chan_iax2",
+  "emittedBy": [
+   "IAXpeers",
+   "IAXpeerlist"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   }
+  ]
+ },
+ "QueueMember": {
+  "sources": [
+   "apps/app_queue.c:10948"
+  ],
+  "module": "app_queue",
+  "emittedBy": [
+   "QueueStatus"
+  ],
+  "role": "listItem",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "Queue",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Name",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Location",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "StateInterface",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Membership",
+    "optional": false,
+    "values": [
+     "dynamic",
+     "static"
+    ],
+    "note": ""
+   },
+   {
+    "name": "Penalty",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "CallsTaken",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "LastCall",
+    "optional": false,
+    "values": null,
+    "note": "%d, unix time"
+   },
+   {
+    "name": "LastPause",
+    "optional": false,
+    "values": null,
+    "note": "%d, unix time"
+   },
+   {
+    "name": "LoginTime",
+    "optional": false,
+    "values": null,
+    "note": "%d, unix time"
+   },
+   {
+    "name": "InCall",
+    "optional": false,
+    "values": [
+     "0",
+     "1"
+    ],
+    "note": ""
+   },
+   {
+    "name": "Status",
+    "optional": false,
+    "values": null,
+    "note": "%d, ast_device_state enum"
+   },
+   {
+    "name": "Paused",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "PausedReason",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Wrapuptime",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   }
+  ]
+ },
+ "QueueStatusComplete": {
+  "sources": [
+   "apps/app_queue.c:11005"
+  ],
+  "module": "app_queue",
+  "emittedBy": [
+   "QueueStatus"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   }
+  ]
+ },
+ "QueueSummary": {
+  "sources": [
+   "apps/app_queue.c:10863"
+  ],
+  "module": "app_queue",
+  "emittedBy": [
+   "QueueSummary"
+  ],
+  "role": "listItem",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "Queue",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "LoggedIn",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Available",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "Callers",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "HoldTime",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "TalkTime",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "LongestHoldTime",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   }
+  ]
+ },
+ "QueueSummaryComplete": {
+  "sources": [
+   "apps/app_queue.c:10881"
+  ],
+  "module": "app_queue",
+  "emittedBy": [
+   "QueueSummary"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   }
+  ]
+ },
+ "RegistrationsComplete": {
+  "sources": [
+   "channels/chan_iax2.c:7558"
+  ],
+  "module": "chan_iax2",
+  "emittedBy": [
+   "IAXregistry"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   }
+  ]
+ },
+ "RegistryEntry": {
+  "sources": [
+   "channels/chan_iax2.c:7543"
+  ],
+  "module": "chan_iax2",
+  "emittedBy": [
+   "IAXregistry"
+  ],
+  "role": "listItem",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "Host",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "DNSmanager",
+    "optional": false,
+    "values": [
+     "Y",
+     "N"
+    ],
+    "note": ""
+   },
+   {
+    "name": "Username",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Perceived",
+    "optional": false,
+    "values": null,
+    "note": "address or '<Unregistered>'"
+   },
+   {
+    "name": "Refresh",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "State",
+    "optional": false,
+    "values": [
+     "Unregistered",
+     "Request Sent",
+     "Auth. Sent",
+     "Registered",
+     "Rejected",
+     "Timeout",
+     "No Authentication",
+     "Unknown"
+    ],
+    "note": "regstate2str()"
+   }
+  ]
+ },
+ "ResourceListDetailComplete": {
+  "sources": [
+   "res/res_pjsip_pubsub.c:4592"
+  ],
+  "module": "res_pjsip_pubsub",
+  "emittedBy": [
+   "PJSIPShowResourceLists"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   }
+  ]
+ },
+ "ShowDialPlanComplete": {
+  "sources": [
+   "main/pbx.c:4409"
+  ],
+  "module": "builtin",
+  "emittedBy": [
+   "ShowDialPlan"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "ListExtensions",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "ListPriorities",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "ListContexts",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   }
+  ]
+ },
+ "VoicemailBoxDetail": {
+  "sources": [
+   "apps/app_voicemail.c:14349 (append_vmbox_info_astman)",
+   "apps/app_voicemail.c:14559"
+  ],
+  "module": "app_voicemail",
+  "emittedBy": [
+   "VoicemailBoxSummary"
+  ],
+  "role": "listItem",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Folder",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "CallerID",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Date",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Duration",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Flag",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "ID",
+    "optional": false,
+    "values": null,
+    "note": ""
+   }
+  ]
+ },
+ "VoicemailBoxDetailComplete": {
+  "sources": [
+   "apps/app_voicemail.c:14398"
+  ],
+  "module": "app_voicemail",
+  "emittedBy": [
+   "VoicemailBoxSummary"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   }
+  ]
+ },
+ "VoicemailUserDetail": {
+  "sources": [
+   "apps/app_voicemail.c:14225 (append_vmu_info_astman)",
+   "apps/app_voicemail.c:14475"
+  ],
+  "module": "app_voicemail",
+  "emittedBy": [
+   "VoicemailUserStatus"
+  ],
+  "role": "listItem",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "VMContext",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "VoiceMailbox",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Fullname",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Email",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Pager",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "ServerEmail",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "FromString",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "MailCommand",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Language",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "TimeZone",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Callback",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Dialout",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "UniqueID",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "ExitContext",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "SayDurationMinimum",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "SayEnvelope",
+    "optional": false,
+    "values": [
+     "Yes",
+     "No"
+    ],
+    "note": ""
+   },
+   {
+    "name": "SayCID",
+    "optional": false,
+    "values": [
+     "Yes",
+     "No"
+    ],
+    "note": ""
+   },
+   {
+    "name": "AttachMessage",
+    "optional": false,
+    "values": [
+     "Yes",
+     "No"
+    ],
+    "note": ""
+   },
+   {
+    "name": "AttachmentFormat",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "DeleteMessage",
+    "optional": false,
+    "values": [
+     "Yes",
+     "No"
+    ],
+    "note": ""
+   },
+   {
+    "name": "VolumeGain",
+    "optional": false,
+    "values": null,
+    "note": "%.2f"
+   },
+   {
+    "name": "CanReview",
+    "optional": false,
+    "values": [
+     "Yes",
+     "No"
+    ],
+    "note": ""
+   },
+   {
+    "name": "CanMarkUrgent",
+    "optional": false,
+    "values": [
+     "Yes",
+     "No"
+    ],
+    "note": ""
+   },
+   {
+    "name": "CallOperator",
+    "optional": false,
+    "values": [
+     "Yes",
+     "No"
+    ],
+    "note": ""
+   },
+   {
+    "name": "MaxMessageCount",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "MaxMessageLength",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "NewMessageCount",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "OldMessageCount",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "IMAPUser",
+    "optional": true,
+    "values": null,
+    "note": "IMAP_STORAGE builds only"
+   },
+   {
+    "name": "IMAPServer",
+    "optional": true,
+    "values": null,
+    "note": "IMAP_STORAGE builds only"
+   },
+   {
+    "name": "IMAPPort",
+    "optional": true,
+    "values": null,
+    "note": "IMAP_STORAGE builds only"
+   },
+   {
+    "name": "IMAPFlags",
+    "optional": true,
+    "values": null,
+    "note": "IMAP_STORAGE builds only"
+   }
+  ]
+ },
+ "VoicemailUserDetailComplete": {
+  "sources": [
+   "apps/app_voicemail.c:14481"
+  ],
+  "module": "app_voicemail",
+  "emittedBy": [
+   "VoicemailUserStatus"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": [
+     "1"
+    ],
+    "note": "always 1"
+   }
+  ]
+ },
+ "VoicemailUserEntry": {
+  "sources": [
+   "apps/app_voicemail.c:14225 (append_vmu_info_astman)",
+   "apps/app_voicemail.c:14513"
+  ],
+  "module": "app_voicemail",
+  "emittedBy": [
+   "VoicemailUsersList"
+  ],
+  "role": "listItem",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "VMContext",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "VoiceMailbox",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Fullname",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Email",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Pager",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "ServerEmail",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "FromString",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "MailCommand",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Language",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "TimeZone",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Callback",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "Dialout",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "UniqueID",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "ExitContext",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "SayDurationMinimum",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "SayEnvelope",
+    "optional": false,
+    "values": [
+     "Yes",
+     "No"
+    ],
+    "note": ""
+   },
+   {
+    "name": "SayCID",
+    "optional": false,
+    "values": [
+     "Yes",
+     "No"
+    ],
+    "note": ""
+   },
+   {
+    "name": "AttachMessage",
+    "optional": false,
+    "values": [
+     "Yes",
+     "No"
+    ],
+    "note": ""
+   },
+   {
+    "name": "AttachmentFormat",
+    "optional": false,
+    "values": null,
+    "note": ""
+   },
+   {
+    "name": "DeleteMessage",
+    "optional": false,
+    "values": [
+     "Yes",
+     "No"
+    ],
+    "note": ""
+   },
+   {
+    "name": "VolumeGain",
+    "optional": false,
+    "values": null,
+    "note": "%.2f"
+   },
+   {
+    "name": "CanReview",
+    "optional": false,
+    "values": [
+     "Yes",
+     "No"
+    ],
+    "note": ""
+   },
+   {
+    "name": "CanMarkUrgent",
+    "optional": false,
+    "values": [
+     "Yes",
+     "No"
+    ],
+    "note": ""
+   },
+   {
+    "name": "CallOperator",
+    "optional": false,
+    "values": [
+     "Yes",
+     "No"
+    ],
+    "note": ""
+   },
+   {
+    "name": "MaxMessageCount",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "MaxMessageLength",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "NewMessageCount",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "OldMessageCount",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   },
+   {
+    "name": "IMAPUser",
+    "optional": true,
+    "values": null,
+    "note": "IMAP_STORAGE builds only"
+   },
+   {
+    "name": "IMAPServer",
+    "optional": true,
+    "values": null,
+    "note": "IMAP_STORAGE builds only"
+   },
+   {
+    "name": "IMAPPort",
+    "optional": true,
+    "values": null,
+    "note": "IMAP_STORAGE builds only"
+   },
+   {
+    "name": "IMAPFlags",
+    "optional": true,
+    "values": null,
+    "note": "IMAP_STORAGE builds only"
+   }
+  ]
+ },
+ "VoicemailUserEntryComplete": {
+  "sources": [
+   "apps/app_voicemail.c:14521"
+  ],
+  "module": "app_voicemail",
+  "emittedBy": [
+   "VoicemailUsersList"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   },
+   {
+    "name": "EventList",
+    "optional": false,
+    "values": [
+     "Complete"
+    ],
+    "note": ""
+   },
+   {
+    "name": "ListItems",
+    "optional": false,
+    "values": null,
+    "note": "%d"
+   }
+  ]
+ },
+ "WaitEventComplete": {
+  "sources": [
+   "main/manager.c:3194",
+   "main/manager.c:3297"
+  ],
+  "module": "builtin",
+  "emittedBy": [
+   "WaitEvent"
+  ],
+  "role": "listComplete",
+  "actionId": true,
+  "channelSnapshotPrefixes": [],
+  "bridgeSnapshotPrefixes": [],
+  "fields": [
+   {
+    "name": "ActionID",
+    "optional": true,
+    "values": null,
+    "note": "only when the request carried ActionID"
+   }
+  ],
+  "note": "Terminator after queued events; no EventList/ListItems headers"
+ }
+}
