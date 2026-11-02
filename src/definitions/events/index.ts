@@ -1,207 +1,380 @@
-import {
-    AgentCalled,
-    AgentComplete,
-    AgentConnect,
-    AgentDump,
-    AgentLogin,
-    AgentLogoff,
-    AgentRingNoAnswer,
-    Agents,
-    AgentsComplete
-} from './AgentEvents'
-import {AGIExecEnd} from './AGIExecEnd'
-import {AGIExecStart} from './AGIExecStart'
-import {Alarm} from './Alarm'
-import {AlarmClear} from './AlarmClear'
-import {AOC_D} from './AOC-D'
-import {AOC_E} from './AOC-E'
-import {AOC_S} from './AOC-S'
-import {AorDetail} from './AorDetail'
-import {AorList} from './AorList'
-import {AorListComplete} from './AorListComplete'
-// import {AsyncAGIEnd} from './AsyncAGIEnd'
-// import {AsyncAGIExec} from './AsyncAGIExec'
-// import {AsyncAGIStart} from './AsyncAGIStart'
-// import {AttendedTransfer} from './AttendedTransfer'
-// import {AuthDetail} from './AuthDetail'
-// import {AuthList} from './AuthList'
-// import {AuthListComplete} from './AuthListComplete'
-// import {AuthMethodNotAllowed} from './AuthMethodNotAllowed'
-// import {BlindTransfer} from './BlindTransfer'
-import {
-    BridgeCreate,
-    BridgeDestroy,
-    BridgeEnter,
-    BridgeInfoChannel,
-    BridgeInfoComplete,
-    BridgeLeave,
-    BridgeMerge,
-    BridgeVideoSourceUpdate
-} from './BridgeEvents'
-// import {Cdr} from './Cdr'
-// import {CEL} from './CEL'
-// import {ChallengeResponseFailed} from './ChallengeResponseFailed'
-// import {ChallengeSent} from './ChallengeSent'
-// import {ChannelTalkingStart} from './ChannelTalkingStart'
-// import {ChannelTalkingStop} from './ChannelTalkingStop'
-// import {ChanSpyStart} from './ChanSpyStart'
-// import {ChanSpyStop} from './ChanSpyStop'
-// import {ConfbridgeEnd} from './ConfbridgeEnd'
-// import {ConfbridgeJoin} from './ConfbridgeJoin'
-// import {ConfbridgeLeave} from './ConfbridgeLeave'
-// import {ConfbridgeList} from './ConfbridgeList'
-// import {ConfbridgeMute} from './ConfbridgeMute'
-// import {ConfbridgeRecord} from './ConfbridgeRecord'
-// import {ConfbridgeStart} from './ConfbridgeStart'
-// import {ConfbridgeStopRecord} from './ConfbridgeStopRecord'
-// import {ConfbridgeTalking} from './ConfbridgeTalking'
-// import {ConfbridgeUnmute} from './ConfbridgeUnmute'
-// import {ContactList} from './ContactList'
-// import {ContactListComplete} from './ContactListComplete'
-import {ContactStatus} from './ContactStatus'
-// import {ContactStatusDetail} from './ContactStatusDetail'
-// import {CoreShowChannel} from './CoreShowChannel'
-// import {CoreShowChannelsComplete} from './CoreShowChannelsComplete'
-// import {DAHDIChannel} from './DAHDIChannel'
-import {DeviceStateChange} from './DeviceStateChange'
-// import {DeviceStateListComplete} from './DeviceStateListComplete'
-import {DialBegin} from './DialBegin'
-import {DialEnd} from './DialEnd'
-import {DialState} from './DialState'
-// import {DNDState} from './DNDState'
-// import {DTMFBegin} from './DTMFBegin'
-// import {DTMFEnd} from './DTMFEnd'
-// import {EndpointDetail} from './EndpointDetail'
-// import {EndpointDetailComplete} from './EndpointDetailComplete'
-// import {EndpointList} from './EndpointList'
-// import {EndpointListComplete} from './EndpointListComplete'
-// import {ExtensionStateListComplete} from './ExtensionStateListComplete'
-// import {ExtensionStatus} from './ExtensionStatus'
-// import {FailedACL} from './FailedACL'
-// import {FAXSession} from './FAXSession'
-// import {FAXSessionsComplete} from './FAXSessionsComplete'
-// import {FAXSessionsEntry} from './FAXSessionsEntry'
-// import {FAXStats} from './FAXStats'
-// import {FAXStatus} from './FAXStatus'
-// import {Flash} from './Flash'
-// import {FullyBooted} from './FullyBooted'
-import {Hangup} from './Hangup'
-// import {HangupHandlerPop} from './HangupHandlerPop'
-// import {HangupHandlerPush} from './HangupHandlerPush'
-// import {HangupHandlerRun} from './HangupHandlerRun'
-// import {HangupRequest} from './HangupRequest'
-import {Hold} from './Hold'
-// import {IdentifyDetail} from './IdentifyDetail'
-// import {InvalidAccountID} from './InvalidAccountID'
-// import {InvalidPassword} from './InvalidPassword'
-// import {InvalidTransport} from './InvalidTransport'
-// import {Load} from './Load'
-// import {LoadAverageLimit} from './LoadAverageLimit'
-// import {LocalBridge} from './LocalBridge'
-// import {LocalOptimizationBegin} from './LocalOptimizationBegin'
-// import {LocalOptimizationEnd} from './LocalOptimizationEnd'
-// import {LogChannel} from './LogChannel'
-// import {MCID} from './MCID'
-// import {MeetmeEnd} from './MeetmeEnd'
-// import {MeetmeJoin} from './MeetmeJoin'
-// import {MeetmeLeave} from './MeetmeLeave'
-// import {MeetmeMute} from './MeetmeMute'
-// import {MeetmeTalking} from './MeetmeTalking'
-// import {MeetmeTalkRequest} from './MeetmeTalkRequest'
-// import {MemoryLimit} from './MemoryLimit'
-// import {MessageWaiting} from './MessageWaiting'
-// import {MiniVoiceMail} from './MiniVoiceMail'
-// import {MixMonitorMute} from './MixMonitorMute'
-// import {MixMonitorStart} from './MixMonitorStart'
-// import {MixMonitorStop} from './MixMonitorStop'
-// import {MonitorStart} from './MonitorStart'
-// import {MonitorStop} from './MonitorStop'
-// import {MusicOnHoldStart} from './MusicOnHoldStart'
-// import {MusicOnHoldStop} from './MusicOnHoldStop'
-// import {MWIGet} from './MWIGet'
-// import {MWIGetComplete} from './MWIGetComplete'
-// import {NewAccountCode} from './NewAccountCode'
-// import {NewCallerid} from './NewCallerid'
-import {Newchannel} from './Newchannel'
-import {NewConnectedLine} from './NewConnectedLine'
-// import {NewExten} from './NewExten'
-import {Newstate} from './Newstate'
-import { OriginateResponse } from './OriginateResponse'
-// import {OriginateResponse} from './OriginateResponse'
-// import {ParkedCall} from './ParkedCall'
-// import {ParkedCallGiveUp} from './ParkedCallGiveUp'
-// import {ParkedCallSwap} from './ParkedCallSwap'
-// import {ParkedCallTimeOut} from './ParkedCallTimeOut'
-// import {PeerStatus} from './PeerStatus'
-// import {Pickup} from './Pickup'
-// import {PresenceStateChange} from './PresenceStateChange'
-// import {PresenceStateListComplete} from './PresenceStateListComplete'
-// import {PresenceStatus} from './PresenceStatus'
-import {
-    QueueCallerAbandon,
-    QueueCallerJoin,
-    QueueCallerLeave,
-    QueueEntry,
-    QueueMember,
-    QueueMemberAdded,
-    QueueMemberPause,
-    QueueMemberPenalty,
-    QueueMemberRemoved,
-    QueueMemberRinginuse,
-    QueueMemberStatus,
-    QueueParams
-} from './QueueEvents'
-// import {ReceiveFAX} from './ReceiveFAX'
-// import {Registry} from './Registry'
-// import {Reload} from './Reload'
-// import {Rename} from './Rename'
-// import {RequestBadFormat} from './RequestBadFormat'
-// import {RequestNotAllowed} from './RequestNotAllowed'
-// import {RequestNotSupported} from './RequestNotSupported'
-// import {RTCPReceived} from './RTCPReceived'
-// import {RTCPSent} from './RTCPSent'
-// import {SendFAX} from './SendFAX'
-// import {SessionLimit} from './SessionLimit'
-// import {SessionTimeout} from './SessionTimeout'
-// import {Shutdown} from './Shutdown'
-// import {SIPQualifyPeerDone} from './SIPQualifyPeerDone'
-// import {SoftHangupRequest} from './SoftHangupRequest'
-// import {SpanAlarm} from './SpanAlarm'
-// import {SpanAlarmClear} from './SpanAlarmClear'
-// import {Status} from './Status'
-// import {StatusComplete} from './StatusComplete'
-// import {SuccessfulAuth} from './SuccessfulAuth'
-// import {TransportDetail} from './TransportDetail'
-// import {UnexpectedAddress} from './UnexpectedAddress'
-import {Unhold} from './Unhold'
-// import {Unload} from './Unload'
-// import {UnParkedCall} from './UnParkedCall'
-// import {UserEvent} from './UserEvent'
-// import {VarSet} from './VarSet'
-// import {Wink} from './Wink'
+/**
+ * Generated by scripts/asterisk/generate.py from Asterisk 22.11.0. Do not edit by hand:
+ * change scripts/asterisk/overrides.json or the data files and regenerate.
+ */
+export * from './AGIExecEnd';
+export * from './AGIExecStart';
+export * from './AOC-D';
+export * from './AOC-E';
+export * from './AOC-S';
+export * from './AgentEvents';
+export * from './Alarm';
+export * from './AlarmClear';
+export * from './AorDetail';
+export * from './AorList';
+export * from './AorListComplete';
+export * from './AsyncAGIEnd';
+export * from './AsyncAGIExec';
+export * from './AsyncAGIStart';
+export * from './AttendedTransfer';
+export * from './AuthDetail';
+export * from './AuthList';
+export * from './AuthListComplete';
+export * from './BlindTransfer';
+export * from './BridgeEvents';
+export * from './CCEvents';
+export * from './CEL';
+export * from './Cdr';
+export * from './ChanSpyStart';
+export * from './ChanSpyStop';
+export * from './ChannelHungup';
+export * from './ChannelTalkingStart';
+export * from './ChannelTalkingStop';
+export * from './ChannelsHungupListComplete';
+export * from './ConfbridgeEvents';
+export * from './ContactList';
+export * from './ContactListComplete';
+export * from './ContactStatus';
+export * from './ContactStatusDetail';
+export * from './ContactStatusDetailComplete';
+export * from './CoreShowChannel';
+export * from './CoreShowChannelMap';
+export * from './CoreShowChannelMapComplete';
+export * from './CoreShowChannelsComplete';
+export * from './DAHDIEvents';
+export * from './DBEvents';
+export * from './DNDState';
+export * from './DTMFBegin';
+export * from './DTMFEnd';
+export * from './DeadlockStart';
+export * from './DeviceStateChange';
+export * from './DeviceStateListComplete';
+export * from './DialBegin';
+export * from './DialEnd';
+export * from './DialState';
+export * from './EndpointDetail';
+export * from './EndpointDetailComplete';
+export * from './EndpointList';
+export * from './EndpointListComplete';
+export * from './ExtensionStateListComplete';
+export * from './ExtensionStatus';
+export * from './FAXEvents';
+export * from './Flash';
+export * from './FullyBooted';
+export * from './Hangup';
+export * from './HangupHandlerPop';
+export * from './HangupHandlerPush';
+export * from './HangupHandlerRun';
+export * from './HangupRequest';
+export * from './Hold';
+export * from './IAXEvents';
+export * from './IdentifyDetail';
+export * from './InboundRegistrationDetail';
+export * from './InboundRegistrationDetailComplete';
+export * from './InboundSubscriptionDetail';
+export * from './InboundSubscriptionDetailComplete';
+export * from './JabberStatus';
+export * from './ListDialplan';
+export * from './Load';
+export * from './LocalBridge';
+export * from './LocalOptimizationBegin';
+export * from './LocalOptimizationEnd';
+export * from './LogChannel';
+export * from './MCID';
+export * from './MeetmeEvents';
+export * from './MixMonitorMute';
+export * from './MixMonitorStart';
+export * from './MixMonitorStop';
+export * from './MobileStatus';
+export * from './MusicOnHoldStart';
+export * from './MusicOnHoldStop';
+export * from './NewAccountCode';
+export * from './NewCallerid';
+export * from './NewConnectedLine';
+export * from './NewExten';
+export * from './Newchannel';
+export * from './Newstate';
+export * from './OriginateResponse';
+export * from './OutboundRegistrationDetail';
+export * from './OutboundRegistrationDetailComplete';
+export * from './OutboundSubscriptionDetail';
+export * from './OutboundSubscriptionDetailComplete';
+export * from './PJSIPMaintenanceStatus';
+export * from './PJSIPMaintenanceStatusComplete';
+export * from './ParkingEvents';
+export * from './PeerStatus';
+export * from './Pickup';
+export * from './PresenceStateChange';
+export * from './PresenceStateListComplete';
+export * from './PresenceStatus';
+export * from './QueueEvents';
+export * from './RTCPReceived';
+export * from './RTCPSent';
+export * from './Registry';
+export * from './Reload';
+export * from './Rename';
+export * from './ResourceListDetail';
+export * from './ResourceListDetailComplete';
+export * from './SecurityEvents';
+export * from './ShowDialPlanComplete';
+export * from './Shutdown';
+export * from './SoftHangupRequest';
+export * from './Status';
+export * from './StatusComplete';
+export * from './TransportDetail';
+export * from './Unhold';
+export * from './Unload';
+export * from './UserEvent';
+export * from './VarSet';
+export * from './VoicemailEvents';
+export * from './WaitEventComplete';
+export * from './Wink';
 
-export type AmiChannelEvent = AgentCalled
-    | AgentComplete
-    | AgentConnect
-    | AgentDump
-    | AgentLogin
-    | AgentLogoff
-    | AgentRingNoAnswer
-    | DialBegin
-    | DialEnd
-    | DialState
-    | Hangup
-    | Hold
-    | Newchannel
-    | NewConnectedLine
-    | Newstate
-    | Unhold
+import type { AgentCalled } from './AgentEvents/AgentCalled';
+import type { AgentComplete } from './AgentEvents/AgentComplete';
+import type { AgentConnect } from './AgentEvents/AgentConnect';
+import type { AgentDump } from './AgentEvents/AgentDump';
+import type { AgentLogin } from './AgentEvents/AgentLogin';
+import type { AgentLogoff } from './AgentEvents/AgentLogoff';
+import type { AgentRingNoAnswer } from './AgentEvents/AgentRingNoAnswer';
+import type { Agents } from './AgentEvents/Agents';
+import type { AgentsComplete } from './AgentEvents/AgentsComplete';
+import type { AGIExecEnd } from './AGIExecEnd';
+import type { AGIExecStart } from './AGIExecStart';
+import type { Alarm } from './Alarm';
+import type { AlarmClear } from './AlarmClear';
+import type { AOC_D } from './AOC-D';
+import type { AOC_E } from './AOC-E';
+import type { AOC_S } from './AOC-S';
+import type { AorDetail } from './AorDetail';
+import type { AorList } from './AorList';
+import type { AorListComplete } from './AorListComplete';
+import type { AsyncAGIEnd } from './AsyncAGIEnd';
+import type { AsyncAGIExec } from './AsyncAGIExec';
+import type { AsyncAGIStart } from './AsyncAGIStart';
+import type { AttendedTransfer } from './AttendedTransfer';
+import type { AuthDetail } from './AuthDetail';
+import type { AuthList } from './AuthList';
+import type { AuthListComplete } from './AuthListComplete';
+import type { AuthMethodNotAllowed } from './SecurityEvents/AuthMethodNotAllowed';
+import type { BlindTransfer } from './BlindTransfer';
+import type { BridgeCreate } from './BridgeEvents/BridgeCreate';
+import type { BridgeDestroy } from './BridgeEvents/BridgeDestroy';
+import type { BridgeEnter } from './BridgeEvents/BridgeEnter';
+import type { BridgeInfoChannel } from './BridgeEvents/BridgeInfoChannel';
+import type { BridgeInfoComplete } from './BridgeEvents/BridgeInfoComplete';
+import type { BridgeLeave } from './BridgeEvents/BridgeLeave';
+import type { BridgeListComplete } from './BridgeEvents/BridgeListComplete';
+import type { BridgeListItem } from './BridgeEvents/BridgeListItem';
+import type { BridgeMerge } from './BridgeEvents/BridgeMerge';
+import type { BridgeTechnologyListComplete } from './BridgeEvents/BridgeTechnologyListComplete';
+import type { BridgeTechnologyListItem } from './BridgeEvents/BridgeTechnologyListItem';
+import type { BridgeVideoSourceUpdate } from './BridgeEvents/BridgeVideoSourceUpdate';
+import type { CCAvailable } from './CCEvents/CCAvailable';
+import type { CCCallerRecalling } from './CCEvents/CCCallerRecalling';
+import type { CCCallerStartMonitoring } from './CCEvents/CCCallerStartMonitoring';
+import type { CCCallerStopMonitoring } from './CCEvents/CCCallerStopMonitoring';
+import type { CCFailure } from './CCEvents/CCFailure';
+import type { CCMonitorFailed } from './CCEvents/CCMonitorFailed';
+import type { CCOfferTimerStart } from './CCEvents/CCOfferTimerStart';
+import type { CCRecallComplete } from './CCEvents/CCRecallComplete';
+import type { CCRequestAcknowledged } from './CCEvents/CCRequestAcknowledged';
+import type { CCRequested } from './CCEvents/CCRequested';
+import type { Cdr } from './Cdr';
+import type { CEL } from './CEL';
+import type { ChallengeResponseFailed } from './SecurityEvents/ChallengeResponseFailed';
+import type { ChallengeSent } from './SecurityEvents/ChallengeSent';
+import type { ChannelHungup } from './ChannelHungup';
+import type { ChannelsHungupListComplete } from './ChannelsHungupListComplete';
+import type { ChannelTalkingStart } from './ChannelTalkingStart';
+import type { ChannelTalkingStop } from './ChannelTalkingStop';
+import type { ChanSpyStart } from './ChanSpyStart';
+import type { ChanSpyStop } from './ChanSpyStop';
+import type { ConfbridgeEnd } from './ConfbridgeEvents/ConfbridgeEnd';
+import type { ConfbridgeJoin } from './ConfbridgeEvents/ConfbridgeJoin';
+import type { ConfbridgeLeave } from './ConfbridgeEvents/ConfbridgeLeave';
+import type { ConfbridgeList } from './ConfbridgeEvents/ConfbridgeList';
+import type { ConfbridgeListComplete } from './ConfbridgeEvents/ConfbridgeListComplete';
+import type { ConfbridgeListRooms } from './ConfbridgeEvents/ConfbridgeListRooms';
+import type { ConfbridgeListRoomsComplete } from './ConfbridgeEvents/ConfbridgeListRoomsComplete';
+import type { ConfbridgeMute } from './ConfbridgeEvents/ConfbridgeMute';
+import type { ConfbridgeRecord } from './ConfbridgeEvents/ConfbridgeRecord';
+import type { ConfbridgeStart } from './ConfbridgeEvents/ConfbridgeStart';
+import type { ConfbridgeStopRecord } from './ConfbridgeEvents/ConfbridgeStopRecord';
+import type { ConfbridgeTalking } from './ConfbridgeEvents/ConfbridgeTalking';
+import type { ConfbridgeUnmute } from './ConfbridgeEvents/ConfbridgeUnmute';
+import type { ContactList } from './ContactList';
+import type { ContactListComplete } from './ContactListComplete';
+import type { ContactStatus } from './ContactStatus';
+import type { ContactStatusDetail } from './ContactStatusDetail';
+import type { ContactStatusDetailComplete } from './ContactStatusDetailComplete';
+import type { CoreShowChannel } from './CoreShowChannel';
+import type { CoreShowChannelMap } from './CoreShowChannelMap';
+import type { CoreShowChannelMapComplete } from './CoreShowChannelMapComplete';
+import type { CoreShowChannelsComplete } from './CoreShowChannelsComplete';
+import type { DAHDIChannel } from './DAHDIEvents/DAHDIChannel';
+import type { DAHDIShowChannels } from './DAHDIEvents/DAHDIShowChannels';
+import type { DAHDIShowChannelsComplete } from './DAHDIEvents/DAHDIShowChannelsComplete';
+import type { DAHDIShowStatus } from './DAHDIEvents/DAHDIShowStatus';
+import type { DAHDIShowStatusComplete } from './DAHDIEvents/DAHDIShowStatusComplete';
+import type { DBGetComplete } from './DBEvents/DBGetComplete';
+import type { DBGetResponse } from './DBEvents/DBGetResponse';
+import type { DBGetTreeComplete } from './DBEvents/DBGetTreeComplete';
+import type { DBGetTreeResponse } from './DBEvents/DBGetTreeResponse';
+import type { DeadlockStart } from './DeadlockStart';
+import type { DeviceStateChange } from './DeviceStateChange';
+import type { DeviceStateListComplete } from './DeviceStateListComplete';
+import type { DialBegin } from './DialBegin';
+import type { DialEnd } from './DialEnd';
+import type { DialState } from './DialState';
+import type { DNDState } from './DNDState';
+import type { DTMFBegin } from './DTMFBegin';
+import type { DTMFEnd } from './DTMFEnd';
+import type { EndpointDetail } from './EndpointDetail';
+import type { EndpointDetailComplete } from './EndpointDetailComplete';
+import type { EndpointList } from './EndpointList';
+import type { EndpointListComplete } from './EndpointListComplete';
+import type { ExtensionStateListComplete } from './ExtensionStateListComplete';
+import type { ExtensionStatus } from './ExtensionStatus';
+import type { FailedACL } from './SecurityEvents/FailedACL';
+import type { FAXSession } from './FAXEvents/FAXSession';
+import type { FAXSessionsComplete } from './FAXEvents/FAXSessionsComplete';
+import type { FAXSessionsEntry } from './FAXEvents/FAXSessionsEntry';
+import type { FAXStats } from './FAXEvents/FAXStats';
+import type { FAXStatus } from './FAXEvents/FAXStatus';
+import type { Flash } from './Flash';
+import type { FullyBooted } from './FullyBooted';
+import type { Hangup } from './Hangup';
+import type { HangupHandlerPop } from './HangupHandlerPop';
+import type { HangupHandlerPush } from './HangupHandlerPush';
+import type { HangupHandlerRun } from './HangupHandlerRun';
+import type { HangupRequest } from './HangupRequest';
+import type { Hold } from './Hold';
+import type { IdentifyDetail } from './IdentifyDetail';
+import type { InboundRegistrationDetail } from './InboundRegistrationDetail';
+import type { InboundRegistrationDetailComplete } from './InboundRegistrationDetailComplete';
+import type { InboundSubscriptionDetail } from './InboundSubscriptionDetail';
+import type { InboundSubscriptionDetailComplete } from './InboundSubscriptionDetailComplete';
+import type { InvalidAccountID } from './SecurityEvents/InvalidAccountID';
+import type { InvalidPassword } from './SecurityEvents/InvalidPassword';
+import type { InvalidTransport } from './SecurityEvents/InvalidTransport';
+import type { JabberStatus } from './JabberStatus';
+import type { ListDialplan } from './ListDialplan';
+import type { Load } from './Load';
+import type { LoadAverageLimit } from './SecurityEvents/LoadAverageLimit';
+import type { LocalBridge } from './LocalBridge';
+import type { LocalOptimizationBegin } from './LocalOptimizationBegin';
+import type { LocalOptimizationEnd } from './LocalOptimizationEnd';
+import type { LogChannel } from './LogChannel';
+import type { MCID } from './MCID';
+import type { MeetmeEnd } from './MeetmeEvents/MeetmeEnd';
+import type { MeetmeJoin } from './MeetmeEvents/MeetmeJoin';
+import type { MeetmeLeave } from './MeetmeEvents/MeetmeLeave';
+import type { MeetmeList } from './MeetmeEvents/MeetmeList';
+import type { MeetmeListComplete } from './MeetmeEvents/MeetmeListComplete';
+import type { MeetmeListRooms } from './MeetmeEvents/MeetmeListRooms';
+import type { MeetmeListRoomsComplete } from './MeetmeEvents/MeetmeListRoomsComplete';
+import type { MeetmeMute } from './MeetmeEvents/MeetmeMute';
+import type { MeetmeTalking } from './MeetmeEvents/MeetmeTalking';
+import type { MeetmeTalkRequest } from './MeetmeEvents/MeetmeTalkRequest';
+import type { MemoryLimit } from './SecurityEvents/MemoryLimit';
+import type { MessageWaiting } from './VoicemailEvents/MessageWaiting';
+import type { MiniVoiceMail } from './VoicemailEvents/MiniVoiceMail';
+import type { MixMonitorMute } from './MixMonitorMute';
+import type { MixMonitorStart } from './MixMonitorStart';
+import type { MixMonitorStop } from './MixMonitorStop';
+import type { MobileStatus } from './MobileStatus';
+import type { MusicOnHoldStart } from './MusicOnHoldStart';
+import type { MusicOnHoldStop } from './MusicOnHoldStop';
+import type { MWIGet } from './VoicemailEvents/MWIGet';
+import type { MWIGetComplete } from './VoicemailEvents/MWIGetComplete';
+import type { NewAccountCode } from './NewAccountCode';
+import type { NewCallerid } from './NewCallerid';
+import type { Newchannel } from './Newchannel';
+import type { NewConnectedLine } from './NewConnectedLine';
+import type { NewExten } from './NewExten';
+import type { Newstate } from './Newstate';
+import type { OriginateResponse } from './OriginateResponse';
+import type { OutboundRegistrationDetail } from './OutboundRegistrationDetail';
+import type { OutboundRegistrationDetailComplete } from './OutboundRegistrationDetailComplete';
+import type { OutboundSubscriptionDetail } from './OutboundSubscriptionDetail';
+import type { OutboundSubscriptionDetailComplete } from './OutboundSubscriptionDetailComplete';
+import type { ParkedCall } from './ParkingEvents/ParkedCall';
+import type { ParkedCallGiveUp } from './ParkingEvents/ParkedCallGiveUp';
+import type { ParkedCallsComplete } from './ParkingEvents/ParkedCallsComplete';
+import type { ParkedCallSwap } from './ParkingEvents/ParkedCallSwap';
+import type { ParkedCallTimeOut } from './ParkingEvents/ParkedCallTimeOut';
+import type { Parkinglot } from './ParkingEvents/Parkinglot';
+import type { ParkinglotsComplete } from './ParkingEvents/ParkinglotsComplete';
+import type { PeerEntry } from './IAXEvents/PeerEntry';
+import type { PeerlistComplete } from './IAXEvents/PeerlistComplete';
+import type { PeerStatus } from './PeerStatus';
+import type { Pickup } from './Pickup';
+import type { PJSIPMaintenanceStatus } from './PJSIPMaintenanceStatus';
+import type { PJSIPMaintenanceStatusComplete } from './PJSIPMaintenanceStatusComplete';
+import type { PresenceStateChange } from './PresenceStateChange';
+import type { PresenceStateListComplete } from './PresenceStateListComplete';
+import type { PresenceStatus } from './PresenceStatus';
+import type { PRIShowSpans } from './DAHDIEvents/PRIShowSpans';
+import type { PRIShowSpansComplete } from './DAHDIEvents/PRIShowSpansComplete';
+import type { QueueCallerAbandon } from './QueueEvents/QueueCallerAbandon';
+import type { QueueCallerJoin } from './QueueEvents/QueueCallerJoin';
+import type { QueueCallerLeave } from './QueueEvents/QueueCallerLeave';
+import type { QueueEntry } from './QueueEvents/QueueEntry';
+import type { QueueMember } from './QueueEvents/QueueMember';
+import type { QueueMemberAdded } from './QueueEvents/QueueMemberAdded';
+import type { QueueMemberPause } from './QueueEvents/QueueMemberPause';
+import type { QueueMemberPenalty } from './QueueEvents/QueueMemberPenalty';
+import type { QueueMemberRemoved } from './QueueEvents/QueueMemberRemoved';
+import type { QueueMemberRinginuse } from './QueueEvents/QueueMemberRinginuse';
+import type { QueueMemberStatus } from './QueueEvents/QueueMemberStatus';
+import type { QueueParams } from './QueueEvents/QueueParams';
+import type { QueueStatusComplete } from './QueueEvents/QueueStatusComplete';
+import type { QueueSummary } from './QueueEvents/QueueSummary';
+import type { QueueSummaryComplete } from './QueueEvents/QueueSummaryComplete';
+import type { ReceiveFAX } from './FAXEvents/ReceiveFAX';
+import type { RegistrationsComplete } from './IAXEvents/RegistrationsComplete';
+import type { Registry } from './Registry';
+import type { RegistryEntry } from './IAXEvents/RegistryEntry';
+import type { Reload } from './Reload';
+import type { Rename } from './Rename';
+import type { RequestBadFormat } from './SecurityEvents/RequestBadFormat';
+import type { RequestNotAllowed } from './SecurityEvents/RequestNotAllowed';
+import type { RequestNotSupported } from './SecurityEvents/RequestNotSupported';
+import type { ResourceListDetail } from './ResourceListDetail';
+import type { ResourceListDetailComplete } from './ResourceListDetailComplete';
+import type { RTCPReceived } from './RTCPReceived';
+import type { RTCPSent } from './RTCPSent';
+import type { SendFAX } from './FAXEvents/SendFAX';
+import type { SessionLimit } from './SecurityEvents/SessionLimit';
+import type { ShowDialPlanComplete } from './ShowDialPlanComplete';
+import type { Shutdown } from './Shutdown';
+import type { SoftHangupRequest } from './SoftHangupRequest';
+import type { SpanAlarm } from './DAHDIEvents/SpanAlarm';
+import type { SpanAlarmClear } from './DAHDIEvents/SpanAlarmClear';
+import type { Status } from './Status';
+import type { StatusComplete } from './StatusComplete';
+import type { SuccessfulAuth } from './SecurityEvents/SuccessfulAuth';
+import type { TransportDetail } from './TransportDetail';
+import type { UnexpectedAddress } from './SecurityEvents/UnexpectedAddress';
+import type { Unhold } from './Unhold';
+import type { Unload } from './Unload';
+import type { UnParkedCall } from './ParkingEvents/UnParkedCall';
+import type { UserEvent } from './UserEvent';
+import type { VarSet } from './VarSet';
+import type { VoicemailBoxDetail } from './VoicemailEvents/VoicemailBoxDetail';
+import type { VoicemailBoxDetailComplete } from './VoicemailEvents/VoicemailBoxDetailComplete';
+import type { VoicemailPasswordChange } from './VoicemailEvents/VoicemailPasswordChange';
+import type { VoicemailUserDetail } from './VoicemailEvents/VoicemailUserDetail';
+import type { VoicemailUserDetailComplete } from './VoicemailEvents/VoicemailUserDetailComplete';
+import type { VoicemailUserEntry } from './VoicemailEvents/VoicemailUserEntry';
+import type { VoicemailUserEntryComplete } from './VoicemailEvents/VoicemailUserEntryComplete';
+import type { WaitEventComplete } from './WaitEventComplete';
+import type { Wink } from './Wink';
 
-export type AmiDeviceEvent = unknown;
-export type AmiQueueEvent = unknown;
-
+/** Every AMI event: documented ones and those taken from the Asterisk source. */
 export type AmiEvent =
-    AgentCalled
+    | AgentCalled
     | AgentComplete
     | AgentConnect
     | AgentDump
@@ -220,125 +393,179 @@ export type AmiEvent =
     | AorDetail
     | AorList
     | AorListComplete
-//     | AsyncAGIEnd
-//     | AsyncAGIExec
-//     | AsyncAGIStart
-//     | AttendedTransfer
-//     | AuthDetail
-//     | AuthList
-//     | AuthListComplete
-//     | AuthMethodNotAllowed
-//     | BlindTransfer
+    | AsyncAGIEnd
+    | AsyncAGIExec
+    | AsyncAGIStart
+    | AttendedTransfer
+    | AuthDetail
+    | AuthList
+    | AuthListComplete
+    | AuthMethodNotAllowed
+    | BlindTransfer
     | BridgeCreate
     | BridgeDestroy
     | BridgeEnter
     | BridgeInfoChannel
     | BridgeInfoComplete
     | BridgeLeave
+    | BridgeListComplete
+    | BridgeListItem
     | BridgeMerge
+    | BridgeTechnologyListComplete
+    | BridgeTechnologyListItem
     | BridgeVideoSourceUpdate
-//     | Cdr
-//     | CEL
-//     | ChallengeResponseFailed
-//     | ChallengeSent
-//     | ChannelTalkingStart
-//     | ChannelTalkingStop
-//     | ChanSpyStart
-//     | ChanSpyStop
-//     | ConfbridgeEnd
-//     | ConfbridgeJoin
-//     | ConfbridgeLeave
-//     | ConfbridgeList
-//     | ConfbridgeMute
-//     | ConfbridgeRecord
-//     | ConfbridgeStart
-//     | ConfbridgeStopRecord
-//     | ConfbridgeTalking
-//     | ConfbridgeUnmute
-//     | ContactList
-//     | ContactListComplete
+    | CCAvailable
+    | CCCallerRecalling
+    | CCCallerStartMonitoring
+    | CCCallerStopMonitoring
+    | CCFailure
+    | CCMonitorFailed
+    | CCOfferTimerStart
+    | CCRecallComplete
+    | CCRequestAcknowledged
+    | CCRequested
+    | Cdr
+    | CEL
+    | ChallengeResponseFailed
+    | ChallengeSent
+    | ChannelHungup
+    | ChannelsHungupListComplete
+    | ChannelTalkingStart
+    | ChannelTalkingStop
+    | ChanSpyStart
+    | ChanSpyStop
+    | ConfbridgeEnd
+    | ConfbridgeJoin
+    | ConfbridgeLeave
+    | ConfbridgeList
+    | ConfbridgeListComplete
+    | ConfbridgeListRooms
+    | ConfbridgeListRoomsComplete
+    | ConfbridgeMute
+    | ConfbridgeRecord
+    | ConfbridgeStart
+    | ConfbridgeStopRecord
+    | ConfbridgeTalking
+    | ConfbridgeUnmute
+    | ContactList
+    | ContactListComplete
     | ContactStatus
-//     | ContactStatusDetail
-//     | CoreShowChannel
-//     | CoreShowChannelsComplete
-//     | DAHDIChannel
+    | ContactStatusDetail
+    | ContactStatusDetailComplete
+    | CoreShowChannel
+    | CoreShowChannelMap
+    | CoreShowChannelMapComplete
+    | CoreShowChannelsComplete
+    | DAHDIChannel
+    | DAHDIShowChannels
+    | DAHDIShowChannelsComplete
+    | DAHDIShowStatus
+    | DAHDIShowStatusComplete
+    | DBGetComplete
+    | DBGetResponse
+    | DBGetTreeComplete
+    | DBGetTreeResponse
+    | DeadlockStart
     | DeviceStateChange
-    // | DeviceStateListComplete
+    | DeviceStateListComplete
     | DialBegin
     | DialEnd
     | DialState
-    // | DNDState
-    // | DTMFBegin
-    // | DTMFEnd
-    // | EndpointDetail
-    // | EndpointDetailComplete
-    // | EndpointList
-    // | EndpointListComplete
-    // | ExtensionStateListComplete
-    // | ExtensionStatus
-    // | FailedACL
-    // | FAXSession
-    // | FAXSessionsComplete
-    // | FAXSessionsEntry
-    // | FAXStats
-    // | FAXStatus
-    // | Flash
-    // | FullyBooted
+    | DNDState
+    | DTMFBegin
+    | DTMFEnd
+    | EndpointDetail
+    | EndpointDetailComplete
+    | EndpointList
+    | EndpointListComplete
+    | ExtensionStateListComplete
+    | ExtensionStatus
+    | FailedACL
+    | FAXSession
+    | FAXSessionsComplete
+    | FAXSessionsEntry
+    | FAXStats
+    | FAXStatus
+    | Flash
+    | FullyBooted
     | Hangup
-    // | HangupHandlerPop
-    // | HangupHandlerPush
-    // | HangupHandlerRun
-    // | HangupRequest
+    | HangupHandlerPop
+    | HangupHandlerPush
+    | HangupHandlerRun
+    | HangupRequest
     | Hold
-    // | IdentifyDetail
-    // | InvalidAccountID
-    // | InvalidPassword
-    // | InvalidTransport
-    // | Load
-    // | LoadAverageLimit
-    // | LocalBridge
-    // | LocalOptimizationBegin
-    // | LocalOptimizationEnd
-    // | LogChannel
-    // | MCID
-    // | MeetmeEnd
-    // | MeetmeJoin
-    // | MeetmeLeave
-    // | MeetmeMute
-    // | MeetmeTalking
-    // | MeetmeTalkRequest
-    // | MemoryLimit
-    // | MessageWaiting
-    // | MiniVoiceMail
-    // | MixMonitorMute
-    // | MixMonitorStart
-    // | MixMonitorStop
-    // | MonitorStart
-    // | MonitorStop
-    // | MusicOnHoldStart
-    // | MusicOnHoldStop
-    // | MWIGet
-    // | MWIGetComplete
-    // | NewAccountCode
-    // | NewCallerid
+    | IdentifyDetail
+    | InboundRegistrationDetail
+    | InboundRegistrationDetailComplete
+    | InboundSubscriptionDetail
+    | InboundSubscriptionDetailComplete
+    | InvalidAccountID
+    | InvalidPassword
+    | InvalidTransport
+    | JabberStatus
+    | ListDialplan
+    | Load
+    | LoadAverageLimit
+    | LocalBridge
+    | LocalOptimizationBegin
+    | LocalOptimizationEnd
+    | LogChannel
+    | MCID
+    | MeetmeEnd
+    | MeetmeJoin
+    | MeetmeLeave
+    | MeetmeList
+    | MeetmeListComplete
+    | MeetmeListRooms
+    | MeetmeListRoomsComplete
+    | MeetmeMute
+    | MeetmeTalking
+    | MeetmeTalkRequest
+    | MemoryLimit
+    | MessageWaiting
+    | MiniVoiceMail
+    | MixMonitorMute
+    | MixMonitorStart
+    | MixMonitorStop
+    | MobileStatus
+    | MusicOnHoldStart
+    | MusicOnHoldStop
+    | MWIGet
+    | MWIGetComplete
+    | NewAccountCode
+    | NewCallerid
     | Newchannel
     | NewConnectedLine
-    // | NewExten
+    | NewExten
     | Newstate
     | OriginateResponse
-    // | ParkedCall
-    // | ParkedCallGiveUp
-    // | ParkedCallSwap
-    // | ParkedCallTimeOut
-    // | PeerStatus
-    // | Pickup
-    // | PresenceStateChange
-    // | PresenceStateListComplete
-    // | PresenceStatus
+    | OutboundRegistrationDetail
+    | OutboundRegistrationDetailComplete
+    | OutboundSubscriptionDetail
+    | OutboundSubscriptionDetailComplete
+    | ParkedCall
+    | ParkedCallGiveUp
+    | ParkedCallsComplete
+    | ParkedCallSwap
+    | ParkedCallTimeOut
+    | Parkinglot
+    | ParkinglotsComplete
+    | PeerEntry
+    | PeerlistComplete
+    | PeerStatus
+    | Pickup
+    | PJSIPMaintenanceStatus
+    | PJSIPMaintenanceStatusComplete
+    | PresenceStateChange
+    | PresenceStateListComplete
+    | PresenceStatus
+    | PRIShowSpans
+    | PRIShowSpansComplete
     | QueueCallerAbandon
     | QueueCallerJoin
     | QueueCallerLeave
     | QueueEntry
+    | QueueMember
     | QueueMemberAdded
     | QueueMemberPause
     | QueueMemberPenalty
@@ -346,33 +573,81 @@ export type AmiEvent =
     | QueueMemberRinginuse
     | QueueMemberStatus
     | QueueParams
-    | QueueMember
-    // | ReceiveFAX
-    // | Registry
-    // | Reload
-    // | Rename
-    // | RequestBadFormat
-    // | RequestNotAllowed
-    // | RequestNotSupported
-    // | RTCPReceived
-    // | RTCPSent
-    // | SendFAX
-    // | SessionLimit
-    // | SessionTimeout
-    // | Shutdown
-    // | SIPQualifyPeerDone
-    // | SoftHangupRequest
-    // | SpanAlarm
-    // | SpanAlarmClear
-    // | Status
-    // | StatusComplete
-    // | SuccessfulAuth
-    // | TransportDetail
-    // | UnexpectedAddress
+    | QueueStatusComplete
+    | QueueSummary
+    | QueueSummaryComplete
+    | ReceiveFAX
+    | RegistrationsComplete
+    | Registry
+    | RegistryEntry
+    | Reload
+    | Rename
+    | RequestBadFormat
+    | RequestNotAllowed
+    | RequestNotSupported
+    | ResourceListDetail
+    | ResourceListDetailComplete
+    | RTCPReceived
+    | RTCPSent
+    | SendFAX
+    | SessionLimit
+    | ShowDialPlanComplete
+    | Shutdown
+    | SoftHangupRequest
+    | SpanAlarm
+    | SpanAlarmClear
+    | Status
+    | StatusComplete
+    | SuccessfulAuth
+    | TransportDetail
+    | UnexpectedAddress
     | Unhold
-// | Unload
-// | UnParkedCall
-// | UserEvent
-// | VarSet
-// | Wink
+    | Unload
+    | UnParkedCall
+    | UserEvent
+    | VarSet
+    | VoicemailBoxDetail
+    | VoicemailBoxDetailComplete
+    | VoicemailPasswordChange
+    | VoicemailUserDetail
+    | VoicemailUserDetailComplete
+    | VoicemailUserEntry
+    | VoicemailUserEntryComplete
+    | WaitEventComplete
+    | Wink;
 
+/** Event type by its `Event` header value. */
+export type AmiEventMap = { [E in AmiEvent as E['Event']]: E };
+
+export type AmiChannelEvent =
+    | AgentCalled
+    | AgentComplete
+    | AgentConnect
+    | AgentDump
+    | AgentLogin
+    | AgentLogoff
+    | AgentRingNoAnswer
+    | DialBegin
+    | DialEnd
+    | DialState
+    | Hangup
+    | Hold
+    | Newchannel
+    | NewConnectedLine
+    | Newstate
+    | Unhold;
+export type AmiDeviceEvent =
+    | DeviceStateChange
+    | ExtensionStatus
+    | PresenceStateChange
+    | PresenceStatus;
+export type AmiQueueEvent =
+    | QueueCallerAbandon
+    | QueueCallerJoin
+    | QueueCallerLeave
+    | QueueMemberAdded
+    | QueueMemberPause
+    | QueueMemberPenalty
+    | QueueMemberRemoved
+    | QueueMemberRinginuse
+    | QueueMemberStatus;
